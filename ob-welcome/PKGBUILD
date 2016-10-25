@@ -1,0 +1,35 @@
+
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=obr-welcome
+pkgver=1.01
+pkgrel=1
+pkgdesc="Welcome Screen for OBRevenge"
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=('python2' 'openbox')
+source=("obwelcome"
+        "obrwelcome.desktop"
+        "obrevenge-redhd.png")
+md5sums=('cf4f05619760ec01a160d4b8abf995c4'
+         '31b2ce4cd8ca43ac15ff3b042d60f786'
+         'ed0de1d24587d6d7830e3cee2bea288d')
+
+
+
+
+
+
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/bin/"
+    cp "${srcdir}/obwelcome" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications"
+    cp "${srcdir}/obrwelcome.desktop" "${pkgdir}/usr/share/applications"
+    mkdir -p "${pkgdir}/usr/share/Icons"
+    cp "${srcdir}/obrevenge-redhd.png" "${pkgdir}/usr/share/Icons"
+}
+
+# -*- mode: bash;-*-
+

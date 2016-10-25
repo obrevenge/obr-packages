@@ -1,0 +1,31 @@
+
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=obr-panelswitcher
+pkgver=1.01
+pkgrel=1
+pkgdesc="A tool to change the panel configuration in OBRevenge"
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=('python2' 'tint2' 'xfce4-panel' 'mate-panel-gtk3' 'lxpanel' 'openbox')
+source=("panelswitcher"
+        "panelswitcher.desktop")
+md5sums=('6530536b7d0ae09d031307011d03e6a7'
+         '561fb463c8ee8907ab52ef70f200ad19')
+
+
+
+
+
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/bin/"
+    cp "${srcdir}/panelswitcher" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications/control_panel/customization"
+    cp "${srcdir}/panelswitcher.desktop" "${pkgdir}/usr/share/applications/control_panel/customization"
+}
+
+# -*- mode: bash;-*-
+
+

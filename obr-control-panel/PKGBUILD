@@ -1,0 +1,28 @@
+
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=obr-control-panel
+pkgver=1.01
+pkgrel=1
+pkgdesc="A tool to adjust settings in OBRevenge"
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=('python2' 'tint2' 'xfce4-panel' 'mate-panel-gtk3' 'lxpanel' 'openbox')
+source=("control_panel"
+        "control-panel.desktop")
+md5sums=('2061a7e98745f61fdf14937478d91773'
+         'ffbafdffcd717ed6fff1e0056ce40fe3')
+
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/bin/"
+    cp "${srcdir}/control_panel" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications/"
+    cp "${srcdir}/control-panel.desktop" "${pkgdir}/usr/share/applications/"
+}
+
+# -*- mode: bash;-*-
+
+
+

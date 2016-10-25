@@ -1,0 +1,39 @@
+
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=obr-software-install-tool
+pkgver=1.01
+pkgrel=1
+pkgdesc="A tool to quickly install software in OBRevenge"
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=('python2' 'openbox')
+source=("obsoftwareinstall2.py"
+        "obsoftware.desktop"
+        "medialist2.sh"
+        "officelist2.sh"
+        "internetlist2.sh"
+        "installapps2.sh")
+md5sums=('9cb1cee7e4669832cd5bf4220353f2c4'
+         'cda8c307f047ddac9aca6b4f663ed32a'
+         '8e2af768260b211773efcba44d6a287d'
+         '2ecced13d8e360ff0c619cd778e3d781'
+         '3e4484930c8196645f558613fcdee575'
+         '0737b35ff245b3a036ae1b22f23b2e87')
+
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/bin/"
+    cp "${srcdir}/obsoftwareinstall2.py" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/medialist2.sh" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/officelist2.sh" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/internetlist2.sh" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/installapps2.sh" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications"
+    cp "${srcdir}/obsoftware.desktop" "${pkgdir}/usr/share/applications/"
+}
+
+# -*- mode: bash;-*-
+
+
