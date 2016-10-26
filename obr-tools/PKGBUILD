@@ -16,7 +16,8 @@ source=("arandr-wr.sh"
         "postinstall.sh"
         "screenlayout.sh"
         "updatemirrorlist.sh"
-        "vbox-clear.sh")
+        "vbox-clear.sh"
+	"pcmanfmroot.desktop")
 md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
          '315627bfb3653d9aa5f6d4dd97ad54a4'
          'b8ceb9f86a0f1a3a0145726da62b5495'
@@ -25,7 +26,8 @@ md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
          '3d3adf00aebd7a9241fe9e866fae0986'
          '7490fb101a6f08cdc0ab00ad1ee9a335'
          'b718d91db87aa927180bcf2631f9bf1f'
-         'a6655957ddb05a79d0a7606800d601ec')
+         'a6655957ddb05a79d0a7606800d601ec'
+         '00f6bb1a59bec771c55e15cd18cb2af2')
 
 
 package() {
@@ -40,6 +42,9 @@ package() {
     cp "${srcdir}/screenlayout.sh" "${pkgdir}/usr/bin/"
     cp "${srcdir}/updatemirrorlist.sh" "${pkgdir}/usr/bin/"
     cp "${srcdir}/vbox-clear.sh" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications/"
+    cp "${srcdir}/pcmanfmroot.desktop" "${pkgdir}/usr/share/applications/"
+    
 
 }
 

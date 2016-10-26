@@ -37,7 +37,7 @@ class Base:
         os.system("sed -i '/docky/d' ~/.config/openbox/autostart;killall docky")
         
     def matelayout(self, widget):
-        os.system("rm ~/.config/dconf/user;cp ~/.config/dconf/user.mate ~/.config/dconf/user;sed -i -e 's/tint2/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/xfce4-panel/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/lxpanel/mate-panel/g' ~/.config/openbox/autostart;killall xfce4-panel;killall lxpanel;killall tint2;killall mate-panel;killall docky;nohup mate-panel > /dev/null 2> /dev/null &")
+        os.system("sed -i '/docky/d' ~/.config/openbox/autostart;rm ~/.config/dconf/user;cp ~/.config/dconf/user.mate ~/.config/dconf/user;sed -i -e 's/tint2/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/xfce4-panel/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/lxpanel/mate-panel/g' ~/.config/openbox/autostart;killall xfce4-panel;killall lxpanel;killall tint2;killall mate-panel;killall docky;nohup mate-panel > /dev/null 2> /dev/null &")
         
     def lxdelayout(self, widget):
 		os.system("sed -i -e 's/edge=top/edge=bottom/g' ~/.config/lxpanel/default/panels/panel;sed -i -e 's/mate-panel/lxpanel/g' ~/.config/openbox/autostart;sed -i -e 's/xfce4-panel/lxpanel/g' ~/.config/openbox/autostart;sed -i -e 's/tint2/lxpanel/g' ~/.config/openbox/autostart;killall docky;killall lxpanel;killall tint2;killall mate-panel;killall xfce4-panel;nohup lxpanel > /dev/null 2> /dev/null &")	
