@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=Steam Installer
-Comment=Tool to install steam on OBRevenge
-Categories=Utility;System
-Exec=steaminstall.sh
-Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png
