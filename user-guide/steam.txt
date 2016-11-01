@@ -1,0 +1,39 @@
+OBRevenge OS is based on Arch Linux, and Steam does not officially support Arch Linux, therefore some configuration is needed to get Steam up and running.
+
+First, if you are running the 64bit version of OBR, you will need to enable the multilib Arch Linux Repository. This is accomplished by editing the configuration file located at /etc/pacman.conf. This file can be quickly accessed in OBR by right clicking on the desktop, scrolling to the "Advanced" section, and selecting pacman.conf under the "system" menu. If you are running the 32bit version of OBR, you may skip ahead to the section titled "Installation".
+
+There are 2 lines on this file that need to uncommented, and they will be near the bottom of the file. The lines are:
+
+      #[multilib]
+      #Include = /etc/pacman.d/mirrorlist
+
+Change the lines by removing the # in front of them.
+
+      [multilib]
+      Include = /etc/pacman.d/mirrorlist
+
+Now make sure that you save the file before you close it.
+
+Open a terminal and update the software sources by entering:
+
+      sudo pacman -Syy
+
+Now you will need to install 32bit video and sound drivers for steam. If you have an AMD or Intel graphics card install lib32-mesa-libgl.
+
+      sudo pacman -S lib32-mesa-libgl
+
+If you have an Nvidia graphics card install lib32-nvidia-libgl.
+
+      sudo pacman -S lib32-nvidia-libgl
+
+Now you will also need to install packages for audio. These are lib32-alsa-plugins and lib32-curl
+
+      sudo pacman -S lib32-alsa-plugins lib32-curl
+
+INSTALLATION
+
+Install the steam package with the following command:
+
+      sudo  pacman -S steam
+
+There is an excellent article for troubleshooting problems with Steam located at: https://wiki.archlinux.org/index.php/Steam/Troubleshooting

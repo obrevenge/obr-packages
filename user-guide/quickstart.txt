@@ -1,0 +1,38 @@
+OBRevenge OS is a base Arch Linux system with a custom Openbox desktop. As such, some useful and detailed information about the system is available at the Arch Wiki.
+
+https://wiki.archlinux.org/
+
+Here are some simple steps to getting started.
+
+UPDATE
+
+First, always update the system. This is easily accomplished by selecting the "Update System" button on the welcome screen. Make sure you are connected to the internet before trying to update! It is also easily accomplished through the terminal by running:
+
+      sudo pacman -Syyu
+
+SOFTWARE TOOL
+
+Second, Select the "Software Installation Tool" from the Welcome Screen. This tool will allow you to choose a category, and then select some specific software to install within each category. The categories are "Internet" "Media", and "Office". After selecting the software that you want to install in each category, make sure that you press "Okay" so that the system will remember your choices. After you have selected the software that you want to install in each category, simply click the "Install with One Click" button at the bottom. The system will then go out and download each application that you selected and install it for you. This tool is a quick way to get your system up and running, while still giving YOU the choice about the specific applications that you want to use to accomplish your frequent tasks.
+
+CONTROL PANEL
+
+Third, the setting are all located in the control panel application. You can access this by clicking on the settings icon in the whisker menu, or by right clicking the desktop and selecting control panel. There, you will find most of the system settings and customization settings.
+
+SYNAPSE SEARCH
+
+Fourth, Synapse is installed and running by default. It can be used to quickly search for applications or files. Access it by the hot keys ctrl and space, or by clicking the icon on the top right.
+
+PANEL SWITCHER
+
+The top panels can be switched by selecting the panel switcher app in the control panel, or searching for it directly. Simply select and click on the panel that you want to use and it will be changed! The Panel Switcher can also add a dock to your desktop, remove the dock, and set some pre-configured layouts for you. Each panel also has it's own application to manage settings specific to it. These settings can be accessed by right clicking on the XFCE4 panel, the LXPanel, and the Mate Panel. The settings for the Tint2 panel can be located in the applications menu under Tint2 Settings. The dock settings are accessible by clicking on the "Docky" icon in the dock itself. The options for customization are endless!!
+
+BASH SHELL
+
+For those of you who use the terminal for frequent tasks like I do, I have added some useful bash aliases to make some common commands a little quicker. I have listed them below:
+
+      alias pac="sudo pacman -S"
+      alias pacs="sudo pacman -Ss"
+      alias pacu="sudo pacman -Syy"
+      alias update="sudo pacman -Syu"
+
+Thank you for giving OBRevnge OS a try! Please Join the Google + Community for news, updates, and discussion about OBRevenge.

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# This is a simple script to update the users home directory with new 
+# cofiguration files
+# Written by Jody James for OBRevenge
+
+# Ask user permission to update config files in home directory
+zenity --question --title="Configuration Upgrade Utility" --height=30 --text "The Default configuration files have been updated in /etc/skel/. Would you like to copy those files to your home directory now?"
+
+# Act on answer
+
+# Getting username the person who is logged in
+user=$(sudo who | awk '{print $1;}')
+
+if [ "$?" = "1" ]
+    then zenity --info --title="Configuration Upgrade Utility" --height=30 --text "OK, you can copy them later manually by running the command 'rm -rf ~/.config/openbox;cp -r /etc/skel/.config/openbox ~/.config/' in a terminal.";exit
+fi
+
+if [ "$?" = "0" ]
+    then su $user -c "rm -rf ~/.config/openbox;cp -r /etc/skel/.config/openbox ~/.config/"
+fi
+

@@ -1,0 +1,31 @@
+The Calamares Installer is designed to allow for dual boot setups on your machine; however, there have many problems with installing using Calamares during the GRUB install process when os-prober is present. This issue is being investigated; however, Calamares will not identify and add other systems to your GRUB boot menu during the install process. There is a relatively easy way to solve this, however.
+
+First, boot into OBRevenge OS and make sure that you are connected to the internet.
+
+Second, open a terminal. You will need to know what partition the other system is installed on. For example, if Ubuntu is installed on /dev/sda1, and you installed OBRevenge OS onto /dev/sda2, then you will need to know that Ubuntu is installed on /dev/sda1. If you are not sure, you can check what partitions are on your machine and their mount points with the following command in the terminal:
+
+      lsblk
+
+Third, mount the partition that contains the other operating system using the following command:
+
+      sudo mount <the partition> /mnt
+
+Replace with the partition identifier, such as /dev/sda1 in the above example.
+
+Fourth, install os-prober with the following command:
+
+      sudo pacman -S ob-prober
+
+os-prober is a relatively small package and will not take long to install.
+
+Now, you need to generate a new GRUB configuration file. Use the following command.
+
+      grub-mkconfig -o /boot/grub/grub.cfg
+
+In the output of this command, you should be able to see where os-prober detected your other operating system. You will then need to unmount the partition with the following:
+
+      sudo umount -R /mnt
+
+Finally, reboot the system and ensure that both operating systems are no available in the GRUB menu.
+
+This can also be accomplished by manually editing the GRUB configuration file located at /boot/grub/grub.cfg; however, I find that the above method helps to ensure mistakes are not made on the config file that cause the system to fail to boot.

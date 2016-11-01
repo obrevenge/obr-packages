@@ -1,0 +1,49 @@
+
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=obr-user-guide
+pkgver=1.01
+pkgrel=1
+pkgdesc="Offline User Guide for OBRevenge"
+arch=('any')
+license=('GPL')
+depends=('python2' 'openbox')
+source=("obr-user-guide"
+        "obr-user-guide.desktop"
+        "aur.txt"
+	"dual-booting.txt"
+	"openbox-config.txt"
+	"quickstart.txt"
+	"software-management.txt"
+	"steam.txt")
+md5sums=('b05b2dbabdcc682679bcc1ad4633f032'
+         '308cb352018f27eec4fe047078b70718'
+         '05dda370b5672b346798496b2c341881'
+         '692861c8c65fbdf967d611ae50e96125'
+         '40adfc5b67afa70bc34a91a5a41f4463'
+         '354ec2aaaf4126674c1065cf0a1fe584'
+         '3a018261fe9f163ed54eb3ec6f9efacc'
+         '0e3c891f1dee7684d13925866dc21db7')
+
+
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/bin/"
+    cp "${srcdir}/obr-user-guide" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications"
+    cp "${srcdir}/obr-user-guide.desktop" "${pkgdir}/usr/share/applications"
+    mkdir -p "${pkgdir}/etc/obrevenge"
+    cp "${srcdir}/aur.txt" "${pkgdir}/etc/obrevenge"
+    cp "${srcdir}/dual-booting.txt" "${pkgdir}/etc/obrevenge"
+    cp "${srcdir}/openbox-config.txt" "${pkgdir}/etc/obrevenge"
+    cp "${srcdir}/quickstart.txt" "${pkgdir}/etc/obrevenge"
+    cp "${srcdir}/software-management.txt" "${pkgdir}/etc/obrevenge"
+    cp "${srcdir}/steam.txt" "${pkgdir}/etc/obrevenge"
+}
+
+# -*- mode: bash;-*-
+
+
+
+

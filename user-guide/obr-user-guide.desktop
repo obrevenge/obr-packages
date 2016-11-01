@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.01
+Type=Application
+Name=OBRevenge User Guide
+Comment=User Guide for OBRevenge
+Categories=Utility;Settings
+Exec=obr-user-guide
+Icon=/usr/share/Icons/obrevenge-redhd2.png

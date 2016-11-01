@@ -1,0 +1,27 @@
+There are three options for managing software in OBRevenge OS. The first option that you will be presented with is the OBRevenge Software Installation Tool. This tool is linked to the Welcome Screen, as well as available in the Control Center. The second method is Pamac, a graphical software manager with robust features. The third option is through the command line, using the Arch Linux package manager pacman.
+
+OBBREVENGE SOFTWARE INSTALL TOOL
+
+This tool is primarily designed for use after a fresh install. There are only a few applications available in the categories of Internet, Media, and Office. These applications can be quickly checked for installation and then installed by clicking on the "install with one click" button. For instructions on using this tool, see the Quick Start Guide in this wiki.
+
+PAMAC
+
+Pamac is a software management tool, first designed by the Manjaro team. It can be launched by selecting "software manager" from the menu or from the control panel. This tool allows you to search for software to install by package name, as well as browse software by category and repository. Simply check on the software that you would like to install, click install, and select commit changes. The same method can be used to uninstall software by clicking on an installed application, selecting remove, and selecting commit changes. There are many available preferences in Pamac which can be accessed by clicking on the icon in the title bar and selecting preferences. One of these preference is Arch User Repository support, which will be discussed in another section of this wiki.
+
+Pamac also has a software update application. It can be launched by selecting update manager from the menu or from the control panel. This application will refresh the software sources and then ask you if you want to apply updates. To apply updates select "apply" and the application will install all available updates to your system.
+
+PACMAN
+
+The final method of software management is through the command line. OBRevenge uses the Arch Linux package manager pacman. The other tools on this page are simply graphical front ends for pacman, as pacman is how almost all software management is achieved on this system. To install a package using pacman, use the following command where "package name" is the name of the software package that you want to install without the quotes.
+
+      sudo pacman -S "package name"
+To remove a package use the following command:
+
+      sudo pacman -Rns "package name"
+To refresh the software sources database, use this command:
+
+      sudo pacman -Syy
+To perform a full system update, type:
+
+      sudo pacman -Syyu
+For a more complete list of available commands for pacman see the Arch Wiki at: https://wiki.archlinux.org/index.php/pacman

@@ -1,0 +1,32 @@
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=obr-config-files
+pkgver=1.01
+pkgrel=1
+pkgdesc="Configuration Files for OBRevenge"
+arch=('any')
+license=('GPL')
+depends=('openbox')
+source=("autostart_new"
+	"rc_new.xml"
+	"menu_new.xml"
+	"environment_new")
+md5sums=('20a7fc5bb4d649fb8c4b4d891ac3add8'
+         'dcb6a823fc8757deb3c23da99778e4cc'
+         'c2a1a14848955803a3e1046a3dc5aeb6'
+         '34bbf463555dbfb8f97fe957489d73b7')
+install=obr-config-files.install
+
+
+package() {
+    
+    mkdir -p "${pkgdir}/etc/skel/.config/openbox/"
+    cp "${scrdir}autostart_new" "${pkgdir}/etc/skel/.config/openbox"
+    cp "${scrdir}rc_new.xml" "${pkgdir}/etc/skel/.config/openbox"
+    cp "${scrdir}menu_new.xml" "${pkgdir}/etc/skel/.config/openbox"
+    cp "${scrdir}environment_new" "${pkgdir}/etc/skel/.config/openbox"
+
+}
+
+# -*- mode: bash;-*-
+

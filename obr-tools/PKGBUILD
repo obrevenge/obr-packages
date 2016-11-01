@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-tools
-pkgver=1.01
+pkgver=1.02
 pkgrel=1
 pkgdesc="Script patches and tools for OBRevenge"
 arch=('any')
@@ -17,7 +17,10 @@ source=("arandr-wr.sh"
         "screenlayout.sh"
         "updatemirrorlist.sh"
         "vbox-clear.sh"
-        "pcmanfmroot.desktop")
+	"pcmanfmroot_new.desktop"
+	"stopconky.sh"
+	"startconky.sh"
+	"config-upgrade")
 md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
          '315627bfb3653d9aa5f6d4dd97ad54a4'
          'b8ceb9f86a0f1a3a0145726da62b5495'
@@ -27,8 +30,11 @@ md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
          '7490fb101a6f08cdc0ab00ad1ee9a335'
          'b718d91db87aa927180bcf2631f9bf1f'
          'a6655957ddb05a79d0a7606800d601ec'
-         '00f6bb1a59bec771c55e15cd18cb2af2')
-
+         '00f6bb1a59bec771c55e15cd18cb2af2'
+         'd5a5099479aa24a2a9d30f7cfe587556'
+         '59e41a9840d1b71cbdd8c9dec50be237'
+         'd23360c61fbc3ff4735e801ff2b12199')
+install="obr-tools.install"
 
 package() {
     
@@ -42,8 +48,11 @@ package() {
     cp "${srcdir}/screenlayout.sh" "${pkgdir}/usr/bin/"
     cp "${srcdir}/updatemirrorlist.sh" "${pkgdir}/usr/bin/"
     cp "${srcdir}/vbox-clear.sh" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/startconky.sh" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/stopconky.sh" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/config-upgrade" "${pkgdir}/usr/bin/"
     mkdir -p "${pkgdir}/usr/share/applications/"
-    cp "${srcdir}/pcmanfmroot.desktop" "${pkgdir}/usr/share/applications/"
+    cp "${srcdir}/pcmanfmroot_new.desktop" "${pkgdir}/usr/share/applications/"
 
 }
 

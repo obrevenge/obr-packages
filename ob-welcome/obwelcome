@@ -22,7 +22,10 @@ class Base:
         os.system("gksu obsoftwareinstall2.py")
     
     def read(self, widget):
-        os.system("leafpad ~/Documentation")
+        os.system("obr-user-guide")
+    
+    def readonline(self, widget):
+        os.system("xdg-open https://github.com/obrevenge/obrevenge-iso/wiki")
         
     def google(self, widget):
 		os.system("xdg-open https://plus.google.com/communities/115644675078865877931")
@@ -55,14 +58,17 @@ class Base:
         self.updatebutton.connect("clicked", self.update)
         self.installbutton = gtk.Button("Software Installation Tool")
         self.installbutton.connect("clicked", self.install)
-        self.readbutton = gtk.Button("Read Documentation")
+        self.readbutton = gtk.Button("Offline User Guide")
         self.readbutton.connect("clicked", self.read)
+        self.readonbutton = gtk.Button("Online User Guide")
+        self.readonbutton.connect("clicked", self.readonline)
         self.googlebutton = gtk.Button("Join G+ Community")
         self.googlebutton.connect("clicked", self.google)
         self.vboxbutton = gtk.Button("Virtualbox Modules?")
         self.vboxbutton.connect("clicked", self.vbox)
         self.nvidiabutton = gtk.Button("NVIDIA Drivers")
         self.nvidiabutton.connect("clicked", self.nvidia)
+       
 
 # Making Containers
         self.vbox = gtk.VBox()
@@ -72,7 +78,11 @@ class Base:
         self.vbox1 = gtk.VBox()
         self.vbox1.pack_start(self.updatebutton)
         self.vbox1.pack_start(self.installbutton)
-        self.vbox1.pack_start(self.readbutton)
+        self.hbox2 = gtk.HBox()
+        self.vbox1.pack_start(self.hbox2)
+        self.hbox2.pack_start(self.readbutton)
+        self.hbox2.pack_start(self.readonbutton)
+        self.hbox2.set_homogeneous(20)
         self.hbox1 = gtk.HBox()
         self.hbox1.set_homogeneous(15)
         self.hbox1.pack_start(self.vboxbutton)
@@ -84,6 +94,7 @@ class Base:
         self.vbox.add(self.hbox)
         self.vbox.add(self.vbox1)
         self.vbox1.add(self.hbox1)
+        
 
 
         self.window.show_all()

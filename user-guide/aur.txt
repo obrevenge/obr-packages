@@ -1,0 +1,33 @@
+OBRevenge OS has built in support for the AUR. The AUR is a labyrinth of software available for Arch Linux systems, and therefore available for OBR. Arch Linux does not officially support the AUR, so you will need to be careful about the packages that you install from the AUR. The vast majority of packages in the AUR are safe, as the community driven repository is generally closely watched by the community. However, you may find some packages that cause problems on your system or do not work as intended.
+
+There are 3 main methods available of installing packages from the AUR available in OBRevenge OS. These methods are Pamac, Yaourt (command line), and building yourself from the PKGBUILD.
+
+PAMAC
+
+The preferred method of installing packages from the AUR is using Pamac, in the menu under Software Manager. AUR support can be enabled in Pamac's preferences. Once it is enabled, you can search for and install AUR packages just as with other packages (see software management). When you select a package from the AUR to install, Pamac will download the PKGBUILD, the source, and build the package for you. This process takes longer than installing other packages because it is built from source on your system.
+
+During the process, you will be directed to a terminal type output screen, where Pamac will ask you if you want to edit the package build. Unless you really know what you are doing, do not edit the PKGBUILD. You will also be asked if you are sure you want to build the package and install it. Simply watch the output for prompts and respond accordingly.
+
+Pamac can also watch the AUR for updates to your packages and install the updates for you. This can be enabled in the preferences, and it is recommended in order to keep the software up to date.
+
+YAOURT
+
+Yaourt is a command line tool that will search for and install packages from the AUR. To use Yaourt to search for a package to install, open a terminal and use the following command:
+
+      yaourt <packagename>
+
+You will see an output listing possible matches for your search. Simply enter the number of the package that you would like to install, and yaourt will begin building the package for you. You will see similar output in the terminal as you would using Pamac. This is because Pamac actually uses Yaourt to install and build AUR packages. Respond to the prompts, and the package will be installed.
+
+BUILDING FROM A PKGBUILD
+
+In order to build a package manually, you will need to use a browser to access the AUR here: https://aur.archlinux.org/ From there, you can search for packages that you would like to install. When you find a package, you will need to download the PKGBUILD for the package. To do this, click on the package that you want to install to open the package's page. On the right side there will be several links in a menu. Click on the link that says "download snapshot". You will then download the PKGBUILD.
+
+Then, navigate to where the PKGBUILD downloaded and open a terminal to that location. Type the following command to begin building the package:
+
+      makepkg -s
+
+The system will then download any needed sources and start building the package. Doing this manually, it will be up to you to find and download any other required packages or resolve any package or file conflicts. When the package is finished building, you can install the package using pacman like this:
+
+      sudo pacman -U <packagename>
+
+The package will be installed by pacman, you will can use the normal methods to uninstall it if you desire. Once the package is installed, it is safe for you to delete the package file (ends in .pkg.tar.xz) and the other source and build files.

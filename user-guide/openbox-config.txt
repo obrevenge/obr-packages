@@ -1,0 +1,29 @@
+OBRevenge OS uses a highly customized Openbox Installation for the Desktop Environment. Openbox is an excellent, stable, and lightweight window manager that allows for amazing customization. Some basic configuration options are discussed in this wiki page to allow you to configure OBRevenge OS to your liking.
+
+MENU:
+
+Openbox uses a menu that appears when you right click on the desktop by default. The Openbox menu in OBRevenge OS has been highly customized to make it easier and quicker to use. The "Applications" menu will auto-populate with applications that are installed on the system, as long as the application places a .desktop file in the /usr/share/applications directory. The menu is dynamic, meaning that it will automatically detect when an application is installed or deleted and make the appropriate changes.
+
+The rest of the menu is static, meaning that it will not change unless it is edited by hand. There is no graphical tool to edit the menu installed by default at this time, because the tools may cause problems with the other menus installed for the various panels. If you would like to edit the menu, it can easily be edited by editing the file located in you home directory. It is found in ~/.config/openbox/menu.xml There is also a shortcut to this file in the Openbox menu itself, located under the Advanced heading, Openbox, and menu.xml.
+
+AUTO STARTING APPLICATIONS:
+
+If you would like to have an application or service start as soon as you login to the system, this can be accomplished in 2 ways. The Control Panel has an application named OBRevenge Autostart. This application can be used to add or remove items from the Openbox autostart list. Simply click whether you would like to add or remove an application from autostart. The type in the name of the application. If you are adding the item to autostart, you must type in the command that you want used to start the application. An example of this would be compton -b, starting compton using the -b flag for a background process. If you want to remove an item from autostart, then usually just typing in the name of the application will work. The application searches for that name in the autostart file and deletes the line where it is found. In the above example of compton -b, it would only be necessary to type in compton to have it removed.
+
+If you would like to manually edit the autostart file, it is located in your home directory at ~/.config/openbox/autostart. There is also a shortcut to this file in the Openbox menu itself, located under the Advanced heading, Openbox, and autostart.
+
+KEYBINDINGS
+
+There are default keybindings already set up for OBRevenge. Some useful ones are: Alt+h = File Manager Ctrl+Alt+t = Terminal Ctrl+t = Drop Down Terminal Ctrl+Space = Synapse Ctrl+Alt+Arrows = Change Workspaces Super+Left/Right Arrows = Window Snapping Left/Right Super+Up Arrow = Place Focused Window in Full Screen Super+Down = Release Focused Window from Snapping or Full Screen Alt+F4 = Close Focused Window
+
+To edit the keybindings there is an application called Openbox Keybindings in the Control Center. This provides an easy to use graphical environment to add new hotkeys and edit existing hotkeys. There is also a text configuration file that may be edited directly to make changes in hotkeys/keybindings. This file is located in your home directory at ~/.config/openbox/rc.xml. There is a shortcut to this file in the Openbox menu located under the Advanced Heading, openbox, rc.xml.
+
+THEME
+
+Theming for the Openbox Window Manager is done through the Theme application, found in the Control Center. The window borders are under their own heading in the Theme application, so make sure to change the widget and window borders both to the same theme! :-)
+
+PANELS
+
+As stated in the quick start guide, the panels are easily configured using the Panel Switcher application found in the Control Center.
+
+Detailed information on Openbox can be found in the Arch Wiki: https://wiki.archlinux.org/index.php/openbox
