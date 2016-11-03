@@ -1,8 +1,5 @@
 pre_install() {
-	rm /etc/skel/.config/openbox/autostart
-	rm /etc/skel/.config/openbox/rc.xml
- 	rm /etc/skel/.config/openbox/menu.xml
-	rm /etc/skel/.config/openbox/environment
+	rm -rf /etc/skel/.config/openbox
 }
 
 pre_upgrade() {
@@ -11,14 +8,8 @@ pre_upgrade() {
 }
 
 post_install() {
-	cp /etc/skel/.config/openbox/autostart_new /etc/skel/.config/openbox/autostart
-	cp /etc/skel/.config/openbox/rc_new.xml /etc/skel/.config/openbox/rc.xml
-	cp /etc/skel/.config/openbox/menu_new.xml /etc/skel/.config/openbox/menu.xml
-	cp /etc/skel/.config/openbox/environment_new /etc/skel/.config/openbox/environment
-	rm /etc/skel/.config/openbox/autostart_new
-	rm /etc/skel/.config/openbox/rc_new.xml
- 	rm /etc/skel/.config/openbox/menu_new.xml
-	rm /etc/skel/.config/openbox/environment_new
+	cp -r /etc/skel/.config/openbox /etc/skel/.config/
+	cp -r /etc/skel/.conky /etc/skel/
 	config-upgrade
 }
 

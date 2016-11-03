@@ -27,4 +27,4 @@ xfce4-power-manager &
 parcellite &
 synapse --startup &
 docky &
-conky -c ~/.config/conky.conf &
+sh ~/.conky/conky-startup.sh &

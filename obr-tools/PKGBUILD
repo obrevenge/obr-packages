@@ -33,7 +33,8 @@ md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
          '00f6bb1a59bec771c55e15cd18cb2af2'
          'd5a5099479aa24a2a9d30f7cfe587556'
          '59e41a9840d1b71cbdd8c9dec50be237'
-         'd23360c61fbc3ff4735e801ff2b12199')
+         'a6fd3abb1c43b5ad5f8124a96b409a2b')
+
 install="obr-tools.install"
 
 package() {

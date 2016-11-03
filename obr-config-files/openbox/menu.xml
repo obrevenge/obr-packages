@@ -51,7 +51,7 @@
         <action name="Execute"><command>stopconky.sh</command></action>
     </item>
     <item label="Conky Configuration">
-        <action name="Execute"><command>leafpad .config/conky.conf</command></action>
+        <action name="Execute"><command>conky-manager</command></action>
     </item>
     </menu>
   <separator />
