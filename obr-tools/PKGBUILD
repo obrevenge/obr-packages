@@ -2,12 +2,12 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-tools
-pkgver=1.02
+pkgver=1.03
 pkgrel=1
 pkgdesc="Script patches and tools for OBRevenge"
 arch=('any')
 license=('GPL')
-depends=('python2' 'openbox')
+depends=('python2' 'openbox' 'obr-config-files')
 source=("arandr-wr.sh"
         "autostart"
         "cleanup.sh"
@@ -32,8 +32,9 @@ md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
          'a6655957ddb05a79d0a7606800d601ec'
          '00f6bb1a59bec771c55e15cd18cb2af2'
          'd5a5099479aa24a2a9d30f7cfe587556'
-         '59e41a9840d1b71cbdd8c9dec50be237'
-         'a6fd3abb1c43b5ad5f8124a96b409a2b')
+         '0a70ec9ce4e473ffde2b8fd1847489f3'
+         '918345ea701280970f6d19971e7210e2')
+
 
 install="obr-tools.install"
 
@@ -58,5 +59,6 @@ package() {
 }
 
 # -*- mode: bash;-*-
+
 
 

@@ -1,4 +1,0 @@
-post_upgrade() {
-	mv /usr/share/applications/pcmanfmroot_new.desktop /usr/share/applications/pcmanfmroot.desktop
-}
-
