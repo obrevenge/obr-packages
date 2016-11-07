@@ -13,7 +13,10 @@ post_install() {
 	rm -rf /etc/skel/.config/openbox_new
 	cp -r /etc/skel/.conky_new/* /etc/skel/.conky/
 	rm -rf /etc/skel/.conky_new
-	config-upgrade
+	rm -rf /etc/skel/.conky/Gotham
+	user=$(sudo who | awk '{print $1;}')
+	su $user -c "rm -rf ~/.config/openbox;cp -r /etc/skel/.config/openbox ~/.config/"
+    	su $user -c "cp -r /etc/skel/.conky ~/"
 }
 
 post_upgrade() {
