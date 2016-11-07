@@ -1,48 +1,34 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-wallpapers
-pkgver=1.01
+pkgver=1.02
 pkgrel=1
 pkgdesc="Wallpapers for OBRevenge"
 arch=('any')
 license=('GPL')
 depends=('python2' 'openbox')
-source=("obr-leather.jpg"
-        "obr-leather-black.jpg"
-        "obr-pattern.jpg"
-        "obr-pattern-black.jpg"
-        "obr-slate.jpg"
-        "obr-slate-black.jpg"
-        "obr-texture.jpg"
-        "obr-texture-black.jpg"
-        "obr-world.jpg"
-	"obr-world-black.jpg")
-md5sums=('555e0ec13ec5d25b769011a57ed74bfa'
-         'da6daff1cfc17c416fd8eb377f50ea0c'
-         '6a3e0b55bdc95cee7a95740dfd0a0a46'
-         'ccfed36c529bbce8d0b55f78c753e85f'
-         '2a04ff12dda0cd1e9c880718f538cd6f'
-         '5797297d75fc3f291cf0a3b58869f274'
-         '08e148813dbad7ef36c9ac986d249190'
-         '47ab843d38fa0a4198889c80e7d5a2ba'
-         'c815f38f52b80cf0803fbc95dfa19ca9'
-         '5dc5459f698452b4e853b63d5f5b19be')
+source=("Carbon_Backlight-OBRevengeOS.png"
+        "Dark_disks-v3_OBRevenge.png"
+        "Dark_disks-v3_OBRevenge-Red.png"
+        "White_disks-v3_OBRevenge.png"
+        "White_disks-v3_OBRevenge-Red.png")
+md5sums=('d8d4bb0bede62d4042a83c522bdd273e'
+         'cc9db949b3a188cc6f36d62c01b35ef6'
+         '7656d2952f1aacad5d0b46905c9ffd63'
+         '9963a1414062d028cbcb3c346a76ac20'
+         'aef4e4efa0047f08d855ec1931eac208')
 
 package() {
     
     mkdir -p "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-leather.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-leather-black.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-pattern.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-pattern-black.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-slate.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-slate-black.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-texture.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-texture-black.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-world.jpg" "${pkgdir}/usr/share/Wallpaper"
-    cp "${srcdir}/obr-world-black.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Carbon_Backlight-OBRevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Dark_disks-v3_OBRevenge.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Dark_disks-v3_OBRevenge-Red.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/White_disks-v3_OBRevenge.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/White_disks-v3_OBRevenge-Red.png" "${pkgdir}/usr/share/Wallpaper"
 
 }
 
 # -*- mode: bash;-*-
+
 
