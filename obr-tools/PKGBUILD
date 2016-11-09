@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-tools
-pkgver=1.03
+pkgver=1.04
 pkgrel=1
 pkgdesc="Script patches and tools for OBRevenge"
 arch=('any')
@@ -25,7 +25,7 @@ md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
          '315627bfb3653d9aa5f6d4dd97ad54a4'
          'b8ceb9f86a0f1a3a0145726da62b5495'
          '518d22414a65b9266a72ae4497fb251e'
-         'e280f59ed4e19b48057c7373874ec1a8'
+         '42ba63819ed6afdb8d3d5e5c6d464678'
          '3d3adf00aebd7a9241fe9e866fae0986'
          '7490fb101a6f08cdc0ab00ad1ee9a335'
          'b718d91db87aa927180bcf2631f9bf1f'

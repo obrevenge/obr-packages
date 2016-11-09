@@ -17,6 +17,6 @@ zenity --list --text "Select the NVIDIA drivers that you would like to install."
 
 drivers=` cat ~/.nvidia.txt `
 
-(yes | pacman -S $drivers) | zenity --progress --pulsate --auto-close --title="OBRevenge NVIDIA Drivers Tool" --text "Installing Drivers..." 
+(yes | pacman -S $drivers nvidia-settings) | zenity --progress --pulsate --auto-close --title="OBRevenge NVIDIA Drivers Tool" --text "Installing Drivers..." 
 
 zenity --info --height=20 --title="OBRevenge NVIDIA Drivers Tool" --text "Your drivers are installed,\nthey should be loaded after you reboot!"
