@@ -2,16 +2,18 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-welcome
-pkgver=1.02
+pkgver=1.03
 pkgrel=1
 pkgdesc="Welcome Screen for OBRevenge"
 arch=('any')
 license=('GPL')
 depends=('python2' 'openbox' 'obr-user-guide')
 source=("obwelcome"
+	"obwelcome-live"
         "obrwelcome.desktop"
         "obrevenge-redhd.png")
 md5sums=('1a6b5039daec0707b375fdae7cf1a134'
+         'e17b512d6a8cc566da0ea68fa6b9e5db'
          '31b2ce4cd8ca43ac15ff3b042d60f786'
          'ed0de1d24587d6d7830e3cee2bea288d')
 
@@ -20,6 +22,7 @@ package() {
     
     mkdir -p "${pkgdir}/usr/bin/"
     cp "${srcdir}/obwelcome" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/obwelcome-live" "${pkgdir}/usr/bin/"
     mkdir -p "${pkgdir}/usr/share/applications"
     cp "${srcdir}/obrwelcome.desktop" "${pkgdir}/usr/share/applications"
     mkdir -p "${pkgdir}/usr/share/Icons"
@@ -27,4 +30,5 @@ package() {
 }
 
 # -*- mode: bash;-*-
+
 
