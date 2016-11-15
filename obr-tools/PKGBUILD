@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-tools
-pkgver=1.04
+pkgver=1.05
 pkgrel=1
 pkgdesc="Script patches and tools for OBRevenge"
 arch=('any')
@@ -22,7 +22,7 @@ source=("arandr-wr.sh"
 	"startconky.sh"
 	"config-upgrade")
 md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
-         '315627bfb3653d9aa5f6d4dd97ad54a4'
+         'e84623449608387e2fa21d814b0779b4'
          'b8ceb9f86a0f1a3a0145726da62b5495'
          '518d22414a65b9266a72ae4497fb251e'
          '42ba63819ed6afdb8d3d5e5c6d464678'
@@ -59,6 +59,7 @@ package() {
 }
 
 # -*- mode: bash;-*-
+
 
 
 
