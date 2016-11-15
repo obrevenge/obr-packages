@@ -19,7 +19,7 @@ class Base:
         os.system("sudo calamares")
 
     def install(self, widget):
-        os.system("gksu obsoftwareinstall2.py")
+        os.system("sudo obsoftwareinstall2.py")
     
     def read(self, widget):
         os.system("obr-user-guide")
@@ -28,13 +28,13 @@ class Base:
         os.system("xdg-open https://github.com/obrevenge/obrevenge-iso/wiki")
         
     def google(self, widget):
-		os.system("xdg-open https://plus.google.com/communities/115644675078865877931")
+	os.system("xdg-open https://plus.google.com/communities/115644675078865877931")
         
     def vbox(self, widget):
-        os.system("gksu vbox-clear.sh")
+        os.system("sudo vbox-clear.sh")
         
     def nvidia(self, widget):
-        os.system("gksu nvidia-driver.sh")
+        os.system("sudo nvidia-driver.sh")
 
 
     def __init__(self):

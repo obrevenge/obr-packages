@@ -13,7 +13,7 @@ source=("obwelcome"
         "obrwelcome.desktop"
         "obrevenge-redhd.png")
 md5sums=('1a6b5039daec0707b375fdae7cf1a134'
-         'e17b512d6a8cc566da0ea68fa6b9e5db'
+         'c4396d0ac9885f23de7ef791a3c34827'
          '31b2ce4cd8ca43ac15ff3b042d60f786'
          'ed0de1d24587d6d7830e3cee2bea288d')
 
@@ -30,5 +30,6 @@ package() {
 }
 
 # -*- mode: bash;-*-
+
 
 
