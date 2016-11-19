@@ -2,13 +2,14 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-user-guide
-pkgver=1.01
+pkgver=1.02
 pkgrel=1
 pkgdesc="Offline User Guide for OBRevenge"
 arch=('any')
 license=('GPL')
 depends=('python2' 'openbox')
 source=("obr-user-guide"
+	"obr-user-guide-online"
         "obr-user-guide.desktop"
         "aur.txt"
 	"dual-booting.txt"
@@ -16,7 +17,8 @@ source=("obr-user-guide"
 	"quickstart.txt"
 	"software-management.txt"
 	"steam.txt")
-md5sums=('b05b2dbabdcc682679bcc1ad4633f032'
+md5sums=('3545b0f8f8d67023d2a2eecdee92dd4d'
+         'bace34d90f07643f4aed7e717cd7cc6f'
          '308cb352018f27eec4fe047078b70718'
          '05dda370b5672b346798496b2c341881'
          '692861c8c65fbdf967d611ae50e96125'
@@ -31,6 +33,7 @@ package() {
     
     mkdir -p "${pkgdir}/usr/bin/"
     cp "${srcdir}/obr-user-guide" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/obr-user-guide-online" "${pkgdir}/usr/bin/"
     mkdir -p "${pkgdir}/usr/share/applications"
     cp "${srcdir}/obr-user-guide.desktop" "${pkgdir}/usr/share/applications"
     mkdir -p "${pkgdir}/etc/obrevenge"

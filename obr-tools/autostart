@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir ~/.config/autostart
+
 ans=$(zenity  --list  --text "Do you want to add or remove an item from Autostart?" --radiolist  --column "Select" --column "Add/Remove" TRUE Add FALSE Remove)
 
 if [ "$ans" = "Add" ]

@@ -25,7 +25,7 @@ class Base:
         os.system("obr-user-guide")
     
     def readonline(self, widget):
-        os.system("xdg-open https://github.com/obrevenge/obrevenge-iso/wiki")
+        os.system("obr-user-guide-online")
         
     def google(self, widget):
 	os.system("xdg-open https://plus.google.com/communities/115644675078865877931")
