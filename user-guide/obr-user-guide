@@ -17,6 +17,6 @@ yad --plug=$key --tabnum=5 --text-info --filename=/etc/obrevenge/aur.txt --wrap 
 yad --plug=$key --tabnum=6 --text-info --filename=/etc/obrevenge/steam.txt --wrap &>res1 &
 
 yad --notebook --key=$key --tab-pos=left --tab="Quick Start Guide" --tab="Dual Booting" --tab="Openbox Configuration" --tab="Software Management" --tab="Arch User Repository" --tab="Installing Steam""" width=1100 --height=700 --window-icon=preferences-desktop --image=preferences-desktop --image-on-top --center \
---title="OBRevenge User Guide" --text='<span font_weight="bold">This is the offline version of the OBRevenge User Guide</span>\nVisit the online version at: https://github.com/obrevenge/obrevenge-iso/wiki' --button="Donate":"xdg-open https://google.com" --button=gtk-close --width=1000 --height=650
+--title="OBRevenge User Guide" --text='<span font_weight="bold">This is the offline version of the OBRevenge User Guide</span>\nVisit the online version at: https://github.com/obrevenge/obrevenge-iso/wiki' --button=gtk-close --width=1000 --height=650
 
 rm res1

@@ -1,12 +1,12 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-config-files
-pkgver=1.01
+pkgver=1.02
 pkgrel=1
 pkgdesc="Configuration Files for OBRevenge"
 arch=('any')
 license=('GPL')
-depends=('openbox' 'conky-manager')
+depends=('openbox' 'conky-manager' 'paranoid')
 source=("git+https://github.com/obrevenge/obr-config-files.git")
 md5sums=('SKIP')
 install=obr-config-files.install

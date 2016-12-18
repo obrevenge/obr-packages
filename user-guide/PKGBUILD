@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-user-guide
-pkgver=1.02
+pkgver=1.03
 pkgrel=1
 pkgdesc="Offline User Guide for OBRevenge"
 arch=('any')
@@ -17,7 +17,7 @@ source=("obr-user-guide"
 	"quickstart.txt"
 	"software-management.txt"
 	"steam.txt")
-md5sums=('3545b0f8f8d67023d2a2eecdee92dd4d'
+md5sums=('SKIP'
          'bace34d90f07643f4aed7e717cd7cc6f'
          '308cb352018f27eec4fe047078b70718'
          '05dda370b5672b346798496b2c341881'
