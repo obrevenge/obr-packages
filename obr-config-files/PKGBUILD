@@ -1,7 +1,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-config-files
-pkgver=1.02
+pkgver=1.03
 pkgrel=1
 pkgdesc="Configuration Files for OBRevenge"
 arch=('any')

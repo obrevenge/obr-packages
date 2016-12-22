@@ -12,7 +12,7 @@ post_install() {
 	cp -r /etc/skel/.config/openbox_new /etc/skel/.config/openbox
 	rm -rf /etc/skel/.config/openbox_new
 	cp -r /etc/skel/.conky_new/* /etc/skel/.conky/
-	rm -rf /etc/skel/.conky_new)
+	rm -rf /etc/skel/.conky_new
 }
 
 post_upgrade() {
