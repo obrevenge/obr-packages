@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-tools
-pkgver=1.06
+pkgver=1.10
 pkgrel=1
 pkgdesc="Script patches and tools for OBRevenge"
 arch=('any')
@@ -20,20 +20,43 @@ source=("arandr-wr.sh"
 	"pcmanfmroot_new.desktop"
 	"stopconky.sh"
 	"startconky.sh"
-	"config-upgrade")
+	"config-upgrade"
+	"codecs-installer.sh"
+	"flashinstall.sh"
+	"grub-repair.sh"
+	"kernel-tool.sh"
+	"obr-codecs.desktop"
+	"obr-flashinstaller.desktop"
+	"obr-grubrepair.desktop"
+	"obr-kerneltool.desktop"
+	"obr-nvidia.desktop"
+	"obr-vbox.desktop"
+	"xfce4-terminal-root.desktop")
+
 md5sums=('e5943363a1cecb2d48b01e3b48ff17b6'
          'de6afb095d35ff4dc1f176b6514c0731'
          'b8ceb9f86a0f1a3a0145726da62b5495'
          '518d22414a65b9266a72ae4497fb251e'
-         '42ba63819ed6afdb8d3d5e5c6d464678'
+         '007d91f3c430ce0794025168a0d0e5cd'
          '3d3adf00aebd7a9241fe9e866fae0986'
          '7490fb101a6f08cdc0ab00ad1ee9a335'
          'b718d91db87aa927180bcf2631f9bf1f'
-         'a6655957ddb05a79d0a7606800d601ec'
+         '5fcc76ac8f9c6316478f363b0dd5a986'
          '00f6bb1a59bec771c55e15cd18cb2af2'
          'd5a5099479aa24a2a9d30f7cfe587556'
          '0a70ec9ce4e473ffde2b8fd1847489f3'
-         '918345ea701280970f6d19971e7210e2')
+         '918345ea701280970f6d19971e7210e2'
+         'e6d1275934b0f28d13c8b65aab473cd3'
+         'aa7e8c40282bae92256e6cff30b4a9e7'
+         '830b43d9d8f8b7a74ef2ced4ac72c35f'
+         '98d3e801c3fbe0896e8a2be465510cc6'
+         '1e0959ea6d30f15b5ff02062ac6476f9'
+         'a08df8edf233696d669aed0c0fcfc72d'
+         '614b4cd86dc8eee6bcd9e1671c62fb6a'
+         '92b3a5ebbbe0312b7cb5bbf8a7abe9cb'
+         '5ea54c4b49f3a3b4b63878eeeb5182a0'
+         '4ace4b70396db122b97d55efbb296f45'
+         '22d9f0b9c0ae69cf18d110acea0190c5')
 
 
 install="obr-tools.install"
@@ -53,13 +76,22 @@ package() {
     cp "${srcdir}/startconky.sh" "${pkgdir}/usr/bin/"
     cp "${srcdir}/stopconky.sh" "${pkgdir}/usr/bin/"
     cp "${srcdir}/config-upgrade" "${pkgdir}/usr/bin/"
-    mkdir -p "${pkgdir}/usr/share/applications/"
+		cp "${srcdir}/codecs-installer.sh" "${pkgdir}/usr/bin/"
+		cp "${srcdir}/flashinstall.sh" "${pkgdir}/usr/bin/"
+		cp "${srcdir}/grub-repair.sh" "${pkgdir}/usr/bin/"
+		cp "${srcdir}/kernel-tool.sh" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications/control_panel/obr-tools/"
     cp "${srcdir}/pcmanfmroot_new.desktop" "${pkgdir}/usr/share/applications/"
+		cp "${srcdir}/obr-codecs.desktop" "${pkgdir}/usr/share/applications/control_panel/obr-tools/"
+		cp "${srcdir}/obr-flashinstaller.desktop" "${pkgdir}/usr/share/applications/control_panel/obr-tools/"
+		cp "${srcdir}/obr-grubrepair.desktop" "${pkgdir}/usr/share/applications/control_panel/obr-tools/"
+		cp "${srcdir}/obr-kerneltool.desktop" "${pkgdir}/usr/share/applications/control_panel/obr-tools/"
+		cp "${srcdir}/obr-nvidia.desktop" "${pkgdir}/usr/share/applications/control_panel/obr-tools/"
+		cp "${srcdir}/obr-vbox.desktop" "${pkgdir}/usr/share/applications/control_panel/obr-tools/"
+		cp "${srcdir}/xfce4-terminal-root.desktop" "${pkgdir}/usr/share/applications/"
 
 }
 
 # -*- mode: bash;-*-
-
-
 
 

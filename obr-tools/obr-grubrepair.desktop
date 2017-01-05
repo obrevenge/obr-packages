@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=OBRevenge Grub Configuration Tool
+Comment=Graphical Grub Configuration Tool for OBRevenge OS
+Categories=Utility;Settings
+Exec=gksu grub-repair.sh
+Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png
