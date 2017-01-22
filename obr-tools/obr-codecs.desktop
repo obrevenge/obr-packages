@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=OBRevenge Codecs Installer
-Comment=Graphical Codecs Installer for OBRevenge OS
-Categories=Utility;Settings
-Exec=gksu codecs-installer.sh
-Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png

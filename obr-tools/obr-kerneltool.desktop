@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=OBRevenge Kernel Manager
-Comment=Graphical Kernel Manager for OBRevenge OS
-Categories=Utility;Settings
-Exec=gksu kernel-tool.sh
-Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png

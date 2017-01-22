@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=OBRevenge Nvidia Drivers Installer
-Comment=Graphical Nvidia Drivers Installer for OBRevenge OS
-Categories=Utility;Settings
-Exec=gksu nvidia-driver.sh
-Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png
