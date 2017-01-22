@@ -40,18 +40,18 @@ class Base:
     def __init__(self):
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.set_position(gtk.WIN_POS_CENTER)
-        self.window.set_size_request(600, 400)
+        self.window.set_size_request(800, 450)
         self.window.set_title("OBRevenge Welcome")
 
 
-# Making Labels
-        self.label = gtk.Label("Thank you for trying OBRevenge! Click the buttons below to get started.")
-        self.label.set_line_wrap(True)
-
-# Making Image
-        self.pix = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/obrevenge-redhd.png", 100, 100)
+# Making Images
+        self.pix = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/obr-logo.png", 200, 200)
         self.image = gtk.Image()
         self.image.set_from_pixbuf(self.pix)
+
+        self.pix1 = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/obr_banner-v1.png", 800, 200)
+        self.image1 = gtk.Image()
+        self.image1.set_from_pixbuf(self.pix1)
 
 # Making Buttons
         self.updatebutton = gtk.Button("Update System")
@@ -72,28 +72,34 @@ class Base:
 
 # Making Containers
         self.vbox = gtk.VBox()
-        self.hbox = gtk.HBox()
-        self.hbox.pack_start(self.image)
-        self.hbox.pack_start(self.label)
+        self.vbox.set_spacing(20)
         self.vbox1 = gtk.VBox()
-        self.vbox1.pack_start(self.updatebutton)
-        self.vbox1.pack_start(self.installbutton)
-        self.hbox2 = gtk.HBox()
-        self.vbox1.pack_start(self.hbox2)
-        self.hbox2.pack_start(self.readbutton)
-        self.hbox2.pack_start(self.readonbutton)
-        self.hbox2.set_homogeneous(20)
-        self.hbox1 = gtk.HBox()
-        self.hbox1.set_homogeneous(15)
-        self.hbox1.pack_start(self.vboxbutton)
-        self.hbox1.pack_start(self.googlebutton)
-        self.hbox1.pack_start(self.nvidiabutton)
+        self.vbox1.pack_start(self.image1)
+        self.hbox = gtk.HBox()
+        self.hbox.set_spacing(20)
+        self.vbox2 = gtk.VBox()
+        self.vbox3 = gtk.VBox()
+        self.vbox4 = gtk.VBox()
+        self.vbox3.pack_start(self.updatebutton)
+        self.vbox3.pack_start(self.image)
+        
+        self.vbox4.set_spacing(20)
+        self.vbox4.pack_start(self.installbutton)
+        self.vbox4.pack_start(self.readbutton)
+        self.vbox4.pack_start(self.readonbutton)
+        
+        self.vbox2.set_spacing(20)
+        self.vbox2.pack_start(self.vboxbutton)
+        self.vbox2.pack_start(self.googlebutton)
+        self.vbox2.pack_start(self.nvidiabutton)
 
 # Placing Items
         self.window.add(self.vbox)
-        self.vbox.add(self.hbox)
         self.vbox.add(self.vbox1)
-        self.vbox1.add(self.hbox1)
+        self.vbox.add(self.hbox)
+        self.hbox.add(self.vbox2)
+        self.hbox.add(self.vbox3)
+        self.hbox.add(self.vbox4)
         
 
 
