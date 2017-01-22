@@ -60,7 +60,7 @@ class Base:
         self.label.set_justify(gtk.JUSTIFY_CENTER)
         
 # Making Image
-        self.pix = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/obrevenge-redhd.png", 100, 100)
+        self.pix = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/obr-logo-sm.png", 100, 100)
         self.image = gtk.Image()
         self.image.set_from_pixbuf(self.pix)
 
