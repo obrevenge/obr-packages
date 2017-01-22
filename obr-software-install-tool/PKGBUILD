@@ -14,7 +14,7 @@ source=("obsoftwareinstall2.py"
         "officelist2.sh"
         "internetlist2.sh"
         "installapps2.sh")
-md5sums=('SKIP
+md5sums=('SKIP'
          'cda8c307f047ddac9aca6b4f663ed32a'
          'b8a41a73da5b035185e408569b492f97'
          '90fb76e0d91799aa538d4834f19a367e'

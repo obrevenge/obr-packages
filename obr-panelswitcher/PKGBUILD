@@ -10,8 +10,8 @@ license=('GPL')
 depends=('python2' 'tint2' 'xfce4-panel' 'mate-panel-gtk3' 'lxpanel' 'openbox')
 source=("panelswitcher"
         "panelswitcher.desktop")
-md5sums=('2981bfe51b36403d40533f52921b2b66'
-         '561fb463c8ee8907ab52ef70f200ad19')
+md5sums=('SKIP'
+         'SKIP')
 
 
 
