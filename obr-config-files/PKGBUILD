@@ -1,7 +1,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-config-files
-pkgver=1.04
+pkgver=1.05
 pkgrel=1
 pkgdesc="Configuration Files for OBRevenge"
 arch=('any')
@@ -20,6 +20,8 @@ package() {
     cp -r "${scrdir}obr-config-files/.conky_new" "${pkgdir}/etc/skel"
     mkdir -p "${pkgdir}/usr/share/applications/control_panel/obr-tools"
     cp "${scrdir}obr-config-files/terminal-tweak.desktop" "${pkgdir}/usr/share/applications/control_panel/obr-tools"
+    mkdir -p "${pkgdir}/etc/obrevenge"
+    cp -rf "${scrdir}obr-config-files/control_panel" "${pkgdir}/etc/obrevenge"
 
 }
 
