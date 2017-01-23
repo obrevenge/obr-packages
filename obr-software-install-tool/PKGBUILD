@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-software-install-tool
-pkgver=1.03
+pkgver=1.04
 pkgrel=1
 pkgdesc="A tool to quickly install software in OBRevenge"
 arch=('any')
