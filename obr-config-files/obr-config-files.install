@@ -13,6 +13,8 @@ post_install() {
 	rm -rf /etc/skel/.config/openbox_new
 	cp -r /etc/skel/.conky_new/* /etc/skel/.conky/
 	rm -rf /etc/skel/.conky_new
+	rm -rf /usr/share/applications/control_panel/obr-tools
+	rm /usr/share/applications/control_panel/software/obsoftware.desktop
 }
 
 post_upgrade() {
