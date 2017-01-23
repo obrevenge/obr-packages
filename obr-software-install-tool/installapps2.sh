@@ -8,6 +8,10 @@ int=` cat /etc/obrevenge/.tmp/int2.txt `
 med=` cat /etc/obrevenge/.tmp/med2.txt `
 off=` cat /etc/obrevenge/.tmp/off2.txt `
 
+if [[ $(echo $med | grep -i 'kdenlive') != "" ]]
+	then med="$med breeze-icons frei0r-plugins"
+fi
+
 
 # Installing Selecting Applications
 (
