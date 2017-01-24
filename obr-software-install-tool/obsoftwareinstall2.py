@@ -1,100 +1,52 @@
-#!/usr/bin/env python2
+#!/bin/bash
 
 
 
-# Importing Modules
-import pygtk
-import gtk
-import os
 
-# This is a software selection tool for OBRevenge
-# written by Jody James
-
-# Creating base class (base window)
-
-class Base:
-
-    def destroy(self, widget, data=None):
-        gtk.main_quit()
-
-    def internet(self, widget):
-        os.system("internetlist2.sh")
-
-    def media(self, widget):
-        os.system("medialist2.sh")
-
-    def office(self, widget):
-        os.system("officelist2.sh")
-
-    def install(self, widget):
-        os.system("installapps2.sh")
-
-    def __init__(self):
-        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-        self.window.set_position(gtk.WIN_POS_CENTER)
-        self.window.set_size_request(600, 400)
-        self.window.set_title("OBRevenge Software Installation Tool")
+plug="12344"
 
 
-# Making Buttons for Software Categories
-        self.internetbutton = gtk.Button("Internet")
-        self.internetbutton.connect("clicked", self.internet)
-        self.internetbutton.set_tooltip_text("Select Internet Applications to Install")
-        self.mediabutton = gtk.Button("Media")
-        self.mediabutton.connect("clicked", self.media)
-        self.mediabutton.set_tooltip_text("Select Media Applicatons to Install")
-        self.officebutton = gtk.Button("Office")
-        self.officebutton.connect("clicked", self.office)
-        self.officebutton.set_tooltip_text("Select Office Applicatons to Install")
-        self.installbutton = gtk.Button("Install your selcted software with one click!")
-        self.installbutton.connect("clicked", self.install)
-        self.installbutton.set_tooltip_text("Click to Begin Installation")
-
-# Making Labels
-        self.label = gtk.Label("Please select the software that you would like to install by clicking on each of the below categories and clicking on the boxes for your desired programs.")
-        self.label.set_line_wrap(True)
-        self.label.set_justify(gtk.JUSTIFY_CENTER)
-
-        self.label2 = gtk.Label("When you are finished selecting the software that you would like to install, simply click the \"Install your selected software with one click\" button below.")
-        self.label2.set_line_wrap(True)
-        self.label.set_justify(gtk.JUSTIFY_CENTER)
-        
-# Making Image
-        self.pix = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/obr-logo-sm.png", 100, 100)
-        self.image = gtk.Image()
-        self.image.set_from_pixbuf(self.pix)
-
-# Making Box containers
-        self.vbox = gtk.VBox()
-        self.hbox = gtk.HBox()
-        self.hbox.pack_start(self.image)
-        self.vbox1 = gtk.VBox()
-        self.vbox1.pack_start(self.label)
-        self.hbox1 = gtk.HBox()
-        self.hbox1.pack_start(self.internetbutton)
-        self.hbox1.pack_start(self.mediabutton)
-        self.hbox1.pack_start(self.officebutton)
-        self.vbox2 = gtk.VBox()
-        self.vbox2.pack_start(self.label2)
-        self.hbox3 = gtk.HBox()
-        self.hbox3.pack_start(self.installbutton)
+yad --plug=$plug --tabnum=1 --list --text "Select the Internet Applications that You Would Like to Install" --checklist --separator=" " --column "Select" --column "Applications" FALSE "firefox " FALSE "chromium " FALSE "midori " FALSE "qupzilla " FALSE "netsurf " FALSE "filezilla " FALSE "opera " FALSE "evolution " FALSE "geary " FALSE "thunderbird " FALSE "transmission-gtk " FALSE "qbittorrent " FALSE "hexchat " --height 400 >> .net.txt &
 
 
-# Placing Items
-        self.window.add(self.vbox)
-        self.vbox.add(self.hbox)
-        self.vbox.add(self.vbox1)
-        self.vbox.add(self.hbox1)
-        self.vbox.add(self.vbox2)
-        self.vbox.add(self.hbox3)
-        self.window.show_all()
-        self.window.connect("destroy", self.destroy)
+
+yad --plug=$plug --tabnum=2 --list --text "Select the Media Applications that You Would Like to Install" --checklist --separator=" " --column "Select" --column "Applications" FALSE "gimp " FALSE "vlc " FALSE "totem " FALSE "spotify " FALSE "parole " FALSE "audacious " FALSE "clementine " FALSE "gthumb " FALSE "shotwell " FALSE "ristretto " FALSE "gpicview " FALSE "brasero " FALSE "audacity " FALSE "simplescreenrecorder " FALSE "xfburn " FALSE "kdenlive " FALSE "obs-studio " --height 400 >> .med.txt &
 
 
-    def main(self):
-        gtk.main()
+yad --plug=$plug --tabnum=3 --list --text "Select the Office Applications that You Would Like to Install" --checklist --separator=" " --column "Select" --column "Applications" FALSE "libreoffice-fresh " FALSE "calligra " FALSE "abiword " FALSE "gnumeric " FALSE "pdfmod " FALSE "evince " FALSE "epdfview " FALSE "calibre " FALSE "fbreader " --height 400 >> .off.txt &
 
-# Running Main Window
-if __name__== "__main__":
-    base = Base()
-    base.main()
+
+yad --notebook --key=$plug --tab="Internet" --tab="Media" --tab="Office" --window-icon=preferences-desktop --image=preferences-desktop --image-on-top --center \
+--title="OBRevenge Software Install Tool" --text='<span font_weight="bold">Quickly Select and Install Software</span>\nSelect software in the tabs below.' --height=500 --width=600 
+
+sed -i -e 's/[|]//g' .net.txt
+sed -i -e 's/[|]//g' .med.txt
+sed -i -e 's/[|]//g' .off.txt
+
+net=$(cat .net.txt | awk '{print $2}')
+med=$(cat .med.txt | awk '{print $2}')
+off=$(cat .off.txt | awk '{print $2}')
+
+if [[ $(echo $med | grep -i 'kdenlive') != "" ]]
+	then med="$med breeze-icons frei0r-plugins"
+fi
+
+zenity --question --title="OBRevenge Software Install Tool" --height=40 --text "The following software will be installed\n\n$net $med $off\n\nDo you want to proceed?"
+
+if [ "$?" = "1" ]
+	then exit
+fi
+
+(pacman -S --noconfirm $net $med $off) | zenity --progress --title="OBRevenge Software Install Tool" --text "Installing Software..." --width=600 --pulsate --auto-close --no-cancel
+
+zenity --info --title="OBRevenge Software Install Tool" --text "Installation Complete!" --height=30
+
+rm .net.txt
+rm .med.txt
+rm .off.txt
+
+
+
+
+
+
