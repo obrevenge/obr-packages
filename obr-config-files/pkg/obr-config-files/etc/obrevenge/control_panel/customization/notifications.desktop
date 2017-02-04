@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Notification Settings
+Comment=Notification Settings for obrevenge
+Categories=Utility;
+Exec=mate-notification-properties
+Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png

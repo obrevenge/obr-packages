@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=OBRevenge Terminal Tweak Tool
+Comment=Terminal Tweaks for OBRevenge OS
+Categories=Utility;Settings
+Exec=terminal-tweak.sh
+Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png

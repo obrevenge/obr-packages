@@ -2,7 +2,7 @@
 
 pkgname=obr-config-files
 pkgver=1.08
-pkgrel=1
+pkgrel=2
 pkgdesc="Configuration Files for OBRevenge"
 arch=('any')
 license=('GPL')

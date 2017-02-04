@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=OBRevenge Virtualbox Driver Manager
+Comment=Graphical Virtualbox Driver Manager for OBRevenge OS
+Categories=Utility;Settings
+Exec=gksu vbox-clear.sh
+Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png
