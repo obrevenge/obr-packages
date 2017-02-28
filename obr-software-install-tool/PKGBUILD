@@ -2,22 +2,25 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-software-install-tool
-pkgver=1.05
+pkgver=2.01
 pkgrel=1
 pkgdesc="A tool to quickly install software in OBRevenge"
 arch=('any')
 license=('GPL')
 depends=('python2' 'openbox')
 source=("obsoftwareinstall2.py"
-        "obsoftware.desktop")
+        "obsoftware.desktop"
+	"installapps.sh")
 md5sums=('SKIP'
-         'SKIP')
+         'SKIP'
+	 'SKIP')
 
 
 package() {
     
     mkdir -p "${pkgdir}/usr/bin/"
     cp "${srcdir}/obsoftwareinstall2.py" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/installapps.sh" "${pkgdir}/usr/bin/"
     mkdir -p "${pkgdir}/usr/share/applications"
     cp "${srcdir}/obsoftware.desktop" "${pkgdir}/usr/share/applications/"
 }
