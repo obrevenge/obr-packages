@@ -50,7 +50,7 @@ class MyWindow(Gtk.Window):
         #google-chrome
         self.gchromebox = Gtk.Box(spacing=10)
         self.gchromebox.set_homogeneous(20)
-        self.gchromelabel = Gtk.Label("Chromium")
+        self.gchromelabel = Gtk.Label("Google Chome")
         self.gchromebox.pack_start(self.gchromelabel, True, True, 0)
         # Only packing the google chrome box if it's a 64bit system
         if platform.machine() == 'x86_64':

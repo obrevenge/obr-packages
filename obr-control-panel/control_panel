@@ -1,20 +1,402 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-# Control Panel for OBRevenge OS
-# Written by Jody James
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+import os
+from gi.repository.GdkPixbuf import Pixbuf
 
-yad --plug=46916 --tabnum=1 --icons --read-dir="/etc/obrevenge/control_panel/customization/" --sort-by-name --single-click width=1050 --height=500 &>res1 &
+class MyWindow(Gtk.Window):
 
-yad --plug=46916 --tabnum=2 --icons --read-dir="/etc/obrevenge/control_panel/system/" --sort-by-name --single-click width=1050 --height=500 &>res2 &
+    def __init__(self):
+        Gtk.Window.__init__(self, title="OBRevenge OS Control Panel")
+        self.set_border_width(6)
+        self.set_default_size(700, 400)
+        self.windowicon = Gtk.Image()
+        self.windowicon.set_from_icon_name('gnome-settings', Gtk.IconSize.MENU)
+        self.main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+        self.add(self.main_box)
+        self.labelbox = Gtk.Box()
+        self.mainlabel = Gtk.Label()
+        self.mainlabel.set_markup("<big>OBRevenge OS Control Panel</big>\nCustomize Your System's Preferences and Appearance")
+        self.mainimage = Gtk.Image()
+        self.mainimage.set_size_request(100, 100)
+        self.mainimage.set_from_file('/usr/share/Icons/obr-logo-sm.png')
+        self.labelbox.pack_start(self.mainimage, True, True, 0)
+        self.labelbox.pack_start(self.mainlabel, True, True, 0)
+        self.main_box.pack_start(self.labelbox, True, True, 0)
+        self.button_box = Gtk.Box(spacing=10)
+        self.main_box.pack_end(self.button_box, True, True, 0)
+        self.button_box.set_homogeneous(20)
 
-yad --plug=46916 --tabnum=3 --icons --read-dir="/etc/obrevenge/control_panel/software/" --sort-by-name --single-click width=1050 --height=500 &>res3 &
+        # Close button
+        self.close_button = Gtk.Button("Close")
+        self.close_button.connect("clicked", Gtk.main_quit)
+        self.button_box.pack_end(self.close_button, True, True, 0)
+        # System Monitor Button
+        self.htop_button = Gtk.Button("System Monitor")
+        self.htop_button.connect("clicked", self.htop)
+        self.button_box.pack_start(self.htop_button, True, True, 0)
+        # System Info Button
+        self.info_button = Gtk.Button("System Info")
+        self.info_button.connect("clicked", self.info)
+        self.button_box.pack_start(self.info_button, True, True, 0)
 
-yad --plug=46916 --tabnum=4 --icons --read-dir="/etc/obrevenge/control_panel/obr-tools/" --sort-by-name --single-click width=1050 --height=500 &>res4 &
+		# Creating Notebook
+        self.notebook = Gtk.Notebook()
+        self.main_box.pack_start(self.notebook, True,True, 0)
 
-yad --notebook --key=46916 --tab="Customization" --tab="System" --tab="Software" --tab="OBR-Tools" width=1050 --height=500 --window-icon=preferences-desktop --image=preferences-desktop --image-on-top --center \
---title="OBRevenge Control Panel" --text='<span font_weight="bold">Change desktop, system and device settings</span>\nSome utilities require the administrator password.' --buttons-layout=spread --button="System Info":"xfce4-terminal -H -e neofetch" --button="System Monitor":"xfce4-terminal -H -e htop" --button=gtk-close --width=500
+		# Creating Customization page
+        self.page1 = Gtk.Box()
+        self.page1.set_border_width(10)
+        self.page1.set_homogeneous(20)
+        self.cust_box1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.cust_box1.set_homogeneous(20)
+        self.cust_box1.set_border_width(30)
+        self.cust_box2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.cust_box2.set_homogeneous(20)
+        self.cust_box2.set_border_width(30)
+        icon = Gtk.Image()
+        icon.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.panelbutton = Gtk.Button(label="PanelSwitcher", image=icon)
+        self.panelbutton.set_image_position(2)
+        self.panelbutton.connect("clicked", self.panel)
+        icon2 = Gtk.Image()
+        icon2.set_from_icon_name('preferences-desktop-theme', Gtk.IconSize.DIALOG)
+        self.themebutton = Gtk.Button(label="Theme", image=icon2)
+        self.themebutton.set_image_position(2)
+        self.themebutton.connect("clicked", self.theme)
+        icon3 = Gtk.Image()
+        icon3.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.desktopbutton = Gtk.Button(label="Desktop Manager", image=icon3)
+        self.desktopbutton.set_image_position(2)
+        self.desktopbutton.connect("clicked", self.desktop)
+        icon4 = Gtk.Image()
+        icon4.set_from_icon_name('mate-notification-properties', Gtk.IconSize.DIALOG)
+        self.notifbutton = Gtk.Button(label="Notifications", image=icon4)
+        self.notifbutton.set_image_position(2)
+        self.notifbutton.connect("clicked", self.notif)
+        icon5 = Gtk.Image()
+        icon5.set_from_icon_name('preferences-desktop-theme', Gtk.IconSize.DIALOG)
+        self.qtbutton = Gtk.Button(label="QT Themes", image=icon5)
+        self.qtbutton.set_image_position(2)
+        self.qtbutton.connect("clicked", self.qt)
+        icon6 = Gtk.Image()
+        icon6.set_from_icon_name('nitrogen', Gtk.IconSize.DIALOG)
+        self.wallbutton = Gtk.Button(label="Wallpaper", image=icon6)
+        self.wallbutton.set_image_position(2)
+        self.wallbutton.connect("clicked", self.wall)
+        self.cust_box1.pack_start(self.panelbutton, True, True, 0)
+        self.cust_box1.pack_start(self.themebutton, True, True, 0)
+        self.cust_box1.pack_start(self.desktopbutton, True, True, 0)
+        self.cust_box2.pack_start(self.notifbutton, True, True, 0)
+        self.cust_box2.pack_start(self.qtbutton, True, True, 0)
+        self.cust_box2.pack_start(self.wallbutton, True, True, 0)
+        self.page1.pack_start(self.cust_box1, True, True, 0)
+        self.page1.pack_start(self.cust_box2, True, True, 0)
+        image1 = Gtk.Image(stock=Gtk.STOCK_PREFERENCES)
+        self.notebook.append_page(self.page1, Gtk.Label('Customization'))
+        
+        
+		# Creating system page
+        self.page2 = Gtk.Box()
+        self.page2.set_border_width(10)
+        self.page2.set_homogeneous(20)
+        self.sys_box1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.sys_box1.set_homogeneous(20)
+        self.sys_box1.set_border_width(30)
+        self.sys_box2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.sys_box2.set_homogeneous(20)
+        self.sys_box2.set_border_width(30)
+        self.sys_box3 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.sys_box3.set_homogeneous(20)
+        self.sys_box3.set_border_width(30)
+        icon7 = Gtk.Image()
+        icon7.set_from_icon_name('preferences-system-network', Gtk.IconSize.DIALOG)
+        self.networkbutton = Gtk.Button(label="Networks", image=icon7)
+        self.networkbutton.set_image_position(2)
+        self.networkbutton.connect("clicked", self.networks)
+        icon8 = Gtk.Image()
+        icon8.set_from_icon_name('cups', Gtk.IconSize.DIALOG)
+        self.printbutton = Gtk.Button(label="Printer Settings", image=icon8)
+        self.printbutton.set_image_position(2)
+        self.printbutton.connect("clicked", self.cups)
+        icon9 = Gtk.Image()
+        icon9.set_from_icon_name('obconf', Gtk.IconSize.DIALOG)
+        self.obkeybutton = Gtk.Button(label="Openbox Key Bindings", image=icon9)
+        self.obkeybutton.set_image_position(2)
+        self.obkeybutton.connect("clicked", self.obkey)
+        icon10 = Gtk.Image()
+        icon10.set_from_icon_name('preferences-system', Gtk.IconSize.DIALOG)
+        self.powerbutton = Gtk.Button(label="Power Manager", image=icon10)
+        self.powerbutton.set_image_position(2)
+        self.powerbutton.connect("clicked", self.power)
+        icon12 = Gtk.Image()
+        icon12.set_from_icon_name('preferences-system', Gtk.IconSize.DIALOG)
+        self.autostartbutton = Gtk.Button(label="Autostart", image=icon12)
+        self.autostartbutton.set_image_position(2)
+        self.autostartbutton.connect("clicked", self.autostart)
+        icon13 = Gtk.Image()
+        icon13.set_from_icon_name('preferences-system', Gtk.IconSize.DIALOG)
+        self.parabutton = Gtk.Button(label="Desktop Effects", image=icon13)
+        self.parabutton.set_image_position(2)
+        self.parabutton.connect("clicked", self.paranoid)
+        icon14 = Gtk.Image()
+        icon14.set_from_icon_name('preferences-system', Gtk.IconSize.DIALOG)
+        self.displaybutton = Gtk.Button(label="Display Settings", image=icon14)
+        self.displaybutton.set_image_position(2)
+        self.displaybutton.connect("clicked", self.display)
+        icon15 = Gtk.Image()
+        icon15.set_from_icon_name('preferences-system', Gtk.IconSize.DIALOG)
+        self.prefbutton = Gtk.Button(label="Preferred Applications", image=icon15)
+        self.prefbutton.set_image_position(2)
+        self.prefbutton.connect("clicked", self.pref)
+        icon16 = Gtk.Image()
+        icon16.set_from_icon_name('config-users', Gtk.IconSize.DIALOG)
+        self.usersbutton = Gtk.Button(label="Users and Groups", image=icon16)
+        self.usersbutton.set_image_position(2)
+        self.usersbutton.connect("clicked", self.users)
+        self.sys_box1.pack_start(self.networkbutton, True, True, 0)
+        self.sys_box1.pack_start(self.printbutton, True, True, 0)
+        self.sys_box1.pack_start(self.obkeybutton, True, True, 0)
+        self.sys_box3.pack_start(self.powerbutton, True, True, 0)
+        self.sys_box2.pack_start(self.autostartbutton, True, True, 0)
+        self.sys_box2.pack_start(self.autostartbutton, True, True, 0)
+        self.sys_box2.pack_start(self.parabutton, True, True, 0)
+        self.sys_box2.pack_start(self.displaybutton, True, True, 0)
+        self.sys_box3.pack_start(self.prefbutton, True, True, 0)
+        self.sys_box3.pack_start(self.usersbutton, True, True, 0)
+        self.page2.pack_start(self.sys_box1, True, True, 0)
+        self.page2.pack_start(self.sys_box2, True, True, 0)
+        self.page2.pack_start(self.sys_box3, True, True, 0)
+        image1 = Gtk.Image(stock=Gtk.STOCK_PREFERENCES)
+        self.notebook.append_page(self.page2, Gtk.Label('System'))
+        
+        # software page
+        self.page3 = Gtk.Box()
+        self.page3.set_border_width(10)
+        self.page3.set_homogeneous(20)
+        self.soft_box1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.soft_box1.set_homogeneous(20)
+        self.soft_box1.set_border_width(30)
+        self.soft_box2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.soft_box2.set_homogeneous(20)
+        self.soft_box2.set_border_width(30)
+        icon17 = Gtk.Image()
+        icon17.set_from_icon_name('gufw', Gtk.IconSize.DIALOG)
+        self.gufwbutton = Gtk.Button(label="Firewall", image=icon17,)
+        self.gufwbutton.set_image_position(2)
+        self.gufwbutton.connect("clicked", self.gufw)
+        icon18 = Gtk.Image()
+        icon18.set_from_icon_name('system-software-install', Gtk.IconSize.DIALOG)
+        self.obsoftbutton = Gtk.Button(label="OBRevenge Software Tool", image=icon18)
+        self.obsoftbutton.set_image_position(2)
+        self.obsoftbutton.connect("clicked", self.obsoft)
+        icon19 = Gtk.Image()
+        icon19.set_from_icon_name('system-software-install', Gtk.IconSize.DIALOG)
+        self.pamacbutton = Gtk.Button(label="Software Manager", image=icon19)
+        self.pamacbutton.set_image_position(2)
+        self.pamacbutton.connect("clicked", self.pamac)
+        icon20 = Gtk.Image()
+        icon20.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.mirrorbutton = Gtk.Button(label="OBRevenge Mirrorlist Tool", image=icon20)
+        self.mirrorbutton.set_image_position(2)
+        self.mirrorbutton.connect("clicked", self.mirror)
+        icon21 = Gtk.Image()
+        icon21.set_from_icon_name('preferences-desktop-theme', Gtk.IconSize.DIALOG)
+        self.walldlbutton = Gtk.Button(label="OBRevenge Wallpaper Download", image=icon21)
+        self.walldlbutton.set_image_position(2)
+        self.walldlbutton.connect("clicked", self.walldl)
+        icon22 = Gtk.Image()
+        icon22.set_from_icon_name('system-software-install', Gtk.IconSize.DIALOG)
+        self.pupdatebutton = Gtk.Button(label="Software Update", image=icon22)
+        self.pupdatebutton.set_image_position(2)
+        self.pupdatebutton.connect("clicked", self.pupdate)
+        self.soft_box1.pack_start(self.gufwbutton, True, True, 0)
+        self.soft_box1.pack_start(self.obsoftbutton, True, True, 0)
+        self.soft_box1.pack_start(self.pamacbutton, True, True, 0)
+        self.soft_box2.pack_start(self.mirrorbutton, True, True, 0)
+        self.soft_box2.pack_start(self.walldlbutton, True, True, 0)
+        self.soft_box2.pack_start(self.pupdatebutton, True, True, 0)
+        self.page3.pack_start(self.soft_box1, True, True, 0)
+        self.page3.pack_start(self.soft_box2, True, True, 0)
+        image1 = Gtk.Image(stock=Gtk.STOCK_PREFERENCES)
+        self.notebook.append_page(self.page3, Gtk.Label('Software'))
+        
+        #OBR-Tool page
+        self.page4 = Gtk.Box()
+        self.page4.set_border_width(10)
+        self.page4.set_homogeneous(20)
+        self.obr_box1 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.obr_box1.set_homogeneous(20)
+        self.obr_box1.set_border_width(30)
+        self.obr_box2 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.obr_box2.set_homogeneous(20)
+        self.obr_box2.set_border_width(30)
+        self.obr_box3 = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=20)
+        self.obr_box3.set_homogeneous(20)
+        self.obr_box3.set_border_width(30)
+        icon23 = Gtk.Image()
+        icon23.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.codecsbutton = Gtk.Button(label="Codecs Installer", image=icon23)
+        self.codecsbutton.set_image_position(2)
+        self.codecsbutton.connect("clicked", self.codecs)
+        icon24 = Gtk.Image()
+        icon24.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.flashbutton = Gtk.Button(label="Flash Installer", image=icon24)
+        self.flashbutton.set_image_position(2)
+        self.flashbutton.connect("clicked", self.flash)
+        icon25 = Gtk.Image()
+        icon25.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.kernelbutton = Gtk.Button(label="Kernel Manager", image=icon25)
+        self.kernelbutton.set_image_position(2)
+        self.kernelbutton.connect("clicked", self.kernel)
+        icon26 = Gtk.Image()
+        icon26.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.nvidiabutton = Gtk.Button(label="NVidia Drivers", image=icon26)
+        self.nvidiabutton.set_image_position(2)
+        self.nvidiabutton.connect("clicked", self.nvidia)
+        icon27 = Gtk.Image()
+        icon27.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.vboxbutton = Gtk.Button('Virtualbox Drivers', image=icon27)
+        self.vboxbutton.set_image_position(2)
+        self.vboxbutton.connect("clicked", self.vbox)
+        icon28 = Gtk.Image()
+        icon28.set_from_icon_name('gnome-settings', Gtk.IconSize.DIALOG)
+        self.activitybutton = Gtk.Button(label="Desktop Activity Settings", image=icon28)
+        self.activitybutton.set_image_position(2)
+        self.activitybutton.connect("clicked", self.activity)
+        icon29 = Gtk.Image()
+        icon29.set_from_icon_name('preferences-system', Gtk.IconSize.DIALOG)
+        self.grubbutton = Gtk.Button(label="Bootloader Configuration", image=icon29)
+        self.grubbutton.set_image_position(2)
+        self.grubbutton.connect("clicked", self.grub)
+        icon30 = Gtk.Image()
+        icon30.set_from_icon_name('preferences-system', Gtk.IconSize.DIALOG)
+        self.usbbutton = Gtk.Button(label="Live USB Creator", image=icon30)
+        self.usbbutton.set_image_position(2)
+        self.usbbutton.connect("clicked", self.usb)
+        icon31 = Gtk.Image()
+        icon31.set_from_icon_name('preferences-system', Gtk.IconSize.DIALOG)
+        self.ttbutton = Gtk.Button(label="Terminal Tweaks", image=icon31)
+        self.ttbutton.set_image_position(2)
+        self.ttbutton.connect("clicked", self.tt)
+        self.obr_box1.pack_start(self.codecsbutton, True, True, 0)
+        self.obr_box1.pack_start(self.flashbutton, True, True, 0)
+        self.obr_box1.pack_start(self.kernelbutton, True, True, 0)
+        self.obr_box3.pack_start(self.nvidiabutton, True, True, 0)
+        self.obr_box3.pack_start(self.vboxbutton, True, True, 0)
+        self.obr_box2.pack_start(self.activitybutton, True, True, 0)
+        self.obr_box2.pack_start(self.grubbutton, True, True, 0)
+        self.obr_box2.pack_start(self.parabutton, True, True, 0)
+        self.obr_box2.pack_start(self.usbbutton, True, True, 0)
+        self.obr_box3.pack_start(self.ttbutton, True, True, 0)
+        self.page4.pack_start(self.obr_box1, True, True, 0)
+        self.page4.pack_start(self.obr_box2, True, True, 0)
+        self.page4.pack_start(self.obr_box3, True, True, 0)
+        image1 = Gtk.Image(stock=Gtk.STOCK_PREFERENCES)
+        self.notebook.append_page(self.page4, Gtk.Label('OBR-Tools'))
 
-rm res1
-rm res2
-rm res3
-rm res4
+
+    def panel(self, widget):
+	    os.system("panelswitcher")
+
+    def theme(self, widget):
+	    os.system("lxappearance")
+
+    def desktop(self, widget):
+	    os.system("gksu lightdm-gtk-greeter-settings")
+
+    def notif(self, widget):
+	    os.system("mate-notification-properties")
+
+    def qt(self, widget):
+	    os.system("qt5ct")
+
+    def wall(self, widget):
+	    os.system("nitrogen")
+
+    def htop(self, widget):
+        os.system("xfce4-terminal -H -e htop")
+
+    def info(self, widget):
+        os.system("xfce4-terminal -H -e neofetch")
+        
+    def networks(self, widget):
+	    os.system("nm-connection-editor")
+		
+    def cups(self, widget):
+	    os.system("system-config-printer")
+	    
+    def obkey(self, widget):
+        os.system("obkey") 
+	    
+    def power(self, widget):
+        os.system("xfce4-power-manager-settings")
+        
+    def autostart(self, widget):
+        os.system("autostart")
+        
+    def paranoid(self, widget):
+        os.system("paranoid.py")
+        
+    def display(self, widget):
+        os.system("lxrandr")
+        
+    def pref(self, widget):
+        os.system("exo-preferred-applications")
+        
+    def users(self, widget):
+        os.system("users-admin")
+        
+    def gufw(self, widget):
+        os.system("gufw")
+        
+    def obsoft(self, widget):
+        os.system("gksu obsoftwareinstall2.py")
+		
+    def pamac(self, widget):
+        os.system("pamac-manager")
+		
+    def mirror(self, widget):
+        os.system("gksu updatemirrorlist.sh")
+		
+    def walldl(self, widget):
+        os.system("getwallpapers.sh")
+		
+    def pupdate(self, widget):
+        os.system("pamac-updater")
+        
+    def codecs(self, widget):
+        os.system("gksu codecs-installer.sh")
+        
+    def flash(self, widget):
+        os.system("gksu flashinstall.sh")
+        
+    def kernel(self, widget):
+        os.system("gksu kernel-tool.sh")
+        
+    def nvidia(self, widget):
+        os.system("gksu nvidia-driver.sh")
+        
+    def vbox(self, widget):
+        os.system("gksu vbox-clear.sh")
+        
+    def activity(self, widget):
+        os.system("desktop-activity.sh")
+        
+    def grub(self, widget):
+        os.system("gksu grub-repair.sh")
+        
+    def usb(self, widget):
+        os.system("isotool.sh")
+        
+    def tt(self, widget):
+        os.system("terminal-tweak.sh")
+
+
+
+win = MyWindow()
+win.connect("delete-event", Gtk.main_quit)
+win.show_all()
+Gtk.main()

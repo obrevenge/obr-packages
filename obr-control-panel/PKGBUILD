@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-control-panel
-pkgver=1.06
+pkgver=2.01
 pkgrel=1
 pkgdesc="A tool to adjust settings in OBRevenge"
 arch=('any')
