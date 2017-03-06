@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=OBRevenge Flash Installer
-Comment=Graphical Flash Installer for OBRevenge OS
-Categories=Utility;Settings
-Exec=gksu flashinstall.sh
-Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=OBRevenge Live USB Creator
-Comment=Live USB Tool for OBRevenge OS
-Categories=Utility;Settings
-Exec=isotool.sh
-Icon=/usr/share/icons/Faenza/categories/48/gnome-settings.png

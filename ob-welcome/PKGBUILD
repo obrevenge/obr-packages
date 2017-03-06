@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-welcome
-pkgver=1.05
+pkgver=1.10
 pkgrel=1
 pkgdesc="Welcome Screen for OBRevenge"
 arch=('any')

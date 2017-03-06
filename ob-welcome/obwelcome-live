@@ -19,7 +19,7 @@ class Base:
         os.system("sudo calamares")
 
     def install(self, widget):
-        os.system("sudo obsoftwareinstall2.py")
+        os.system("obsoftwareinstall2.py")
     
     def read(self, widget):
         os.system("obr-user-guide")

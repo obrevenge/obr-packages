@@ -353,7 +353,7 @@ class MyWindow(Gtk.Window):
         os.system("gufw")
         
     def obsoft(self, widget):
-        os.system("gksu obsoftwareinstall2.py")
+        os.system("obsoftwareinstall2.py")
 		
     def pamac(self, widget):
         os.system("pamac-manager")
