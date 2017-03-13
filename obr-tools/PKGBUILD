@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-tools
-pkgver=1.18
+pkgver=1.20
 pkgrel=1
 pkgdesc="Script patches and tools for OBRevenge"
 arch=('any')
@@ -14,6 +14,7 @@ md5sums=('SKIP')
 package() {
     mkdir -p "${pkgdir}/usr/bin/"
     cp -rf "${srcdir}/obr-tools/tools/arandr-wr.sh" "${pkgdir}/usr/bin"
+    cp -rf "${srcdir}/obr-tools/tools/flashinstall.sh" "${pkgdir}/usr/bin"
     cp -rf "${srcdir}/obr-tools/tools/autostart" "${pkgdir}/usr/bin"
     cp -rf "${srcdir}/obr-tools/tools/cleanup.sh" "${pkgdir}/usr/bin"
     cp -rf "${srcdir}/obr-tools/tools/codecs-installer.sh" "${pkgdir}/usr/bin"
