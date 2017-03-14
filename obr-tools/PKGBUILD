@@ -2,12 +2,12 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-tools
-pkgver=1.20
+pkgver=1.21
 pkgrel=1
 pkgdesc="Script patches and tools for OBRevenge"
 arch=('any')
 license=('GPL')
-depends=('python2' 'openbox' 'obr-config-files' 'python2-xdg' 'wmctrl')
+depends=('python2' 'openbox' 'python2-xdg' 'wmctrl')
 source=("git+https://github.com/obrevenge/obr-tools.git")
 md5sums=('SKIP')
 

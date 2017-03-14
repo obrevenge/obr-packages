@@ -1,7 +1,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-wallpapers
-pkgver=1.02
+pkgver=1.05
 pkgrel=1
 pkgdesc="Wallpapers for OBRevenge"
 arch=('any')
@@ -11,12 +11,16 @@ source=("Carbon_Backlight-OBRevengeOS.png"
         "Dark_disks-v3_OBRevenge.png"
         "Dark_disks-v3_OBRevenge-Red.png"
         "White_disks-v3_OBRevenge.png"
-        "White_disks-v3_OBRevenge-Red.png")
+        "White_disks-v3_OBRevenge-Red.png"
+	"Carved_OBR.svg.png"
+	"Stenciled-OBR.png")
 md5sums=('d8d4bb0bede62d4042a83c522bdd273e'
          'cc9db949b3a188cc6f36d62c01b35ef6'
          '7656d2952f1aacad5d0b46905c9ffd63'
          '9963a1414062d028cbcb3c346a76ac20'
-         'aef4e4efa0047f08d855ec1931eac208')
+         'aef4e4efa0047f08d855ec1931eac208'
+	 'SKIP'
+	 'SKIP')
 
 package() {
     
@@ -26,6 +30,8 @@ package() {
     cp "${srcdir}/Dark_disks-v3_OBRevenge-Red.png" "${pkgdir}/usr/share/Wallpaper"
     cp "${srcdir}/White_disks-v3_OBRevenge.png" "${pkgdir}/usr/share/Wallpaper"
     cp "${srcdir}/White_disks-v3_OBRevenge-Red.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Stenciled-OBR.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Carved_OBR.svg.png" "${pkgdir}/usr/share/Wallpaper"
 
 }
 

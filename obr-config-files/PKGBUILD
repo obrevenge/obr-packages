@@ -1,25 +1,24 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-config-files
-pkgver=1.10
-pkgrel=2
+pkgver=1.20
+pkgrel=1
 pkgdesc="Configuration Files for OBRevenge"
 arch=('any')
 license=('GPL')
 depends=('openbox' 'conky-manager' 'paranoid')
 source=("git+https://github.com/obrevenge/obr-config-files.git")
 md5sums=('SKIP')
-install=obr-config-files.install
 
 
 package() {
     
     mkdir -p "${pkgdir}/etc/skel/.config"
-    cp -r "${scrdir}obr-config-files/openbox_new" "${pkgdir}/etc/skel/.config"
-    mkdir -p "${pkgdir}/etc/skel/.conky"
-    cp -r "${scrdir}obr-config-files/.conky_new" "${pkgdir}/etc/skel"
-    mkdir -p "${pkgdir}/usr/share/applications"
-    cp "${scrdir}obr-config-files/terminal-tweak.desktop" "${pkgdir}/usr/share/applications"
+    cp -rf "${scrdir}obr-config-files/openbox" "${pkgdir}/etc/skel/.config"
+    cp -rf "${scrdir}obr-config-files/.conky" "${pkgdir}/etc/skel"
+    cp -rf "${scrdir}obr-config-files/obmenu-generator" "${pkgdir}/etc/skel/.config"
+    cp -f "${scrdir}obr-config-files/oblogout.conf" "${pkgdir}/etc"
+    
 
 }
 
