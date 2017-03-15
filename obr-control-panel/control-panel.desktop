@@ -5,4 +5,4 @@ Name=Control Center
 Comment=Control Center for OBRevenge
 Categories=Utility;Settings;
 Exec=control_panel
-Icon=/usr/share/icons/Faenza/categories/scalable/xfce4-settings.svg
+Icon=xfce4-settings

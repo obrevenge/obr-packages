@@ -2,7 +2,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-tools
-pkgver=1.21
+pkgver=1.22
 pkgrel=1
 pkgdesc="Script patches and tools for OBRevenge"
 arch=('any')
