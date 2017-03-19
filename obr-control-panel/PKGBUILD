@@ -2,12 +2,12 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-control-panel
-pkgver=2.03
+pkgver=2.05
 pkgrel=1
 pkgdesc="A tool to adjust settings in OBRevenge"
 arch=('any')
 license=('GPL')
-depends=('python2' 'tint2' 'xfce4-panel' 'mate-panel-gtk3' 'lxpanel' 'openbox')
+depends=('python2' 'tint2' 'xfce4-panel' 'mate-panel' 'lxpanel' 'openbox')
 source=("control_panel"
         "control-panel.desktop")
 md5sums=('SKIP'

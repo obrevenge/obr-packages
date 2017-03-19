@@ -2,12 +2,12 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-panelswitcher
-pkgver=1.02
+pkgver=1.04
 pkgrel=1
 pkgdesc="A tool to change the panel configuration in OBRevenge"
 arch=('i686' 'x86_64')
 license=('GPL')
-depends=('python2' 'tint2' 'xfce4-panel' 'mate-panel-gtk3' 'lxpanel' 'openbox')
+depends=('python2' 'tint2' 'xfce4-panel' 'mate-panel' 'lxpanel' 'openbox')
 source=("panelswitcher"
         "panelswitcher.desktop")
 md5sums=('SKIP'
