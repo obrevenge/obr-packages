@@ -1,12 +1,12 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-compiz-compatibility
-pkgver=1.01
+pkgver=1.02
 pkgrel=1
 pkgdesc="Compiz Compatibility Package for OBRevenge"
 arch=('any')
 license=('GPL')
-depends=('compiz')
+depends=('compiz' 'emerald' 'emerald-themes' 'compiz-boxmenu' 'xdgmenumaker')
 source=("git+https://github.com/obrevenge/obr-compiz-compatibility.git")
 md5sums=('SKIP')
 

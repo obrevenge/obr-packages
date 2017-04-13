@@ -5,4 +5,4 @@ Name=OBRevenge Software Tool
 Comment=Software Installation Tool for OBRevenge
 Categories=Utility;
 Exec=obsoftwareinstall2.py
-Icon=/usr/share/icons/Faenza/categories/48/preferences-system.png
+Icon=system-software-install

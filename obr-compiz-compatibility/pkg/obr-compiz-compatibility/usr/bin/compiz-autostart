@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sleep 5
+
+# removing compton from autostart
+sed -i '/compton/d' /home/$USER/.config/openbox/autostart
+
+# starting autostart from openbox
+chmod +x /home/$USER/.config/openbox/autostart
+/home/$USER/.config/openbox/autostart
+
+# adding compton back for openbox-sessions
+echo "compton -b &" >> /home/$USER/.config/openbox/autostart
