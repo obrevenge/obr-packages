@@ -17,7 +17,7 @@ class MyWindow(Gtk.Window):
         self.add(self.main_box)
         self.titlebox = Gtk.Box()
         self.titlelabel = Gtk.Label()
-        self.titlelabel.set_markup("<big>OBRevenge OS Software Installation Tool</big>\nSelect the software that you would like to install and click the 'Install' button.\nApplications may only be installed one at a time.")
+        self.titlelabel.set_markup("<big>OBRevenge OS Software Installation Tool</big>\nSelect the software that you would like to install and click the 'Install' button.")
         self.mainimage = Gtk.Image()
         self.mainimage.set_size_request(100, 100)
         self.mainimage.set_from_file('/usr/share/Icons/obr-logo-sm.png')
