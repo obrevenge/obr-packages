@@ -2,12 +2,12 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-software-install-tool
-pkgver=2.06
+pkgver=3.02
 pkgrel=1
 pkgdesc="A tool to quickly install software in OBRevenge"
 arch=('any')
 license=('GPL')
-depends=('python2' 'openbox')
+depends=('python2' 'openbox' 'faenza-icon-theme' 'breeze-icons')
 source=("obsoftwareinstall2.py"
         "obsoftware.desktop"
 	"installapps.sh")
