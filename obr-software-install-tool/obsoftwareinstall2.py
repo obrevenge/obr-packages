@@ -785,6 +785,29 @@ class MyWindow(Gtk.Window):
         else:
             self.obsbox.pack_end(self.obsbutton, False, False, 0)
             
+        #kodi
+        self.kodbox = Gtk.Box(spacing=10)
+        self.kodbox.set_homogeneous(20)
+        self.kodlabel = Gtk.Label("Kodi Media")
+        self.kodbox.pack_start(self.kodlabel, True, True, 0)
+        self.page2.pack_start(self.kodbox, True, True, 0)
+        self.kodimage = Gtk.Image()
+        self.kodimage.set_from_file(icon_path + 'kmplayer.png')
+        self.kodbox.pack_start(self.kodimage, True, True, 0)
+        self.koddesc = Gtk.Label("Kodi Media Suite")
+        self.kodbox.pack_start(self.koddesc, True, True, 0)
+        self.kodbutton = Gtk.CheckButton("Install")
+        self.kodbutton.connect("clicked", self.kodi)
+        
+        # Checking to see if the package is already installed
+        # and packing the appropriate button/label
+        self.installedlabel40 = Gtk.Label("Installed")
+        kodi = os.popen("pacman -Q kodi | awk '{print $1}'").read()
+        if kodi == 'kodi\n':
+            self.kodbox.pack_end(self.installedlabel40, False, False, 0)
+        else:
+            self.kodbox.pack_end(self.kodbutton, False, False, 0)
+            
             
         # adding page 2
         self.notebook.append_page(self.page2, Gtk.Label('Media'))
@@ -1406,6 +1429,17 @@ class MyWindow(Gtk.Window):
             self.packages.append('fbreader')
         else:
             self.packages.remove('fbreader')
+        print(self.packages)
+        
+    def kodi(self, widget):
+        if self.kodbutton.get_active():
+            state = "on"
+        else:
+            state = "off"
+        if state is 'on':
+            self.packages.append('kodi')
+        else:
+            self.packages.remove('kodi')
         print(self.packages)
 
 
