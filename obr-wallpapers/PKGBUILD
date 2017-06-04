@@ -13,14 +13,18 @@ source=("Carbon_Backlight-OBRevengeOS.png"
         "White_disks-v3_OBRevenge.png"
         "White_disks-v3_OBRevenge-Red.png"
 	"Carved_OBR.svg.png"
-	"Stenciled-OBR.png")
+	"Stenciled-OBR.png"
+    "revengeinstaller1.jpg"
+    "revengeinstaller2.jpg")
 md5sums=('d8d4bb0bede62d4042a83c522bdd273e'
          'cc9db949b3a188cc6f36d62c01b35ef6'
          '7656d2952f1aacad5d0b46905c9ffd63'
          '9963a1414062d028cbcb3c346a76ac20'
          'aef4e4efa0047f08d855ec1931eac208'
-	 'SKIP'
-	 'SKIP')
+         'd457372964b416e37d8c0bad319bff5b'
+         '211d90e3a9623bb93b4d4f86cadfcaeb'
+         '7c943c1fba858a30852119131f67b73d'
+         'c92b0878983a277990df6454c555083e')
 
 package() {
     
