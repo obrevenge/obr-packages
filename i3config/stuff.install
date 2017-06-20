@@ -1,0 +1,18 @@
+post_install() {
+user=$(zenity --entry --text="Put your username here, bud")
+mkdir /home/$user/.config/i3/
+mkdir /home/$user/.config/gtk-3.0/
+cp /etc/skel/config /home/$user/.config/i3/
+cp /etc/skel/oblogout.conf /etc/
+cp /etc/skel/.fehbg /home/$user/
+cp /etc/skel/compton.conf /home/$user/.config/
+cp /etc/skel/settings.ini /home/$user/.config/gtk-3.0/
+chown -R $user:users /home/$user/.config/gtk-3.0
+chown -R $user:users /home/$user/.config/gtk-3.0/settings.ini
+chown -R $user:users /home/$user/.config/compton.conf
+chown -R $user:users /home/$user/.fehbg
+chmod +x ~/.fehbg
+chown -R $user:users /home/$user/.config/i3/
+chown -R $user:users /home/$user/.config/i3/config
+cp /etc/skel/i3status.conf /etc/
+}

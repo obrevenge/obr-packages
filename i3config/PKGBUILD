@@ -1,0 +1,38 @@
+pkgname=i3revenge-desktop
+pkgver=1.00
+pkgrel=1
+pkgdesc="A metapackage for a Revenge OS spin on the i3wm"
+arch=('x86_64')
+depends=('i3-gaps' 'light' 'i3status' 'python-pytz' 'python-tzlocal' 'py3status' 'python-pydbus' 'playerctl' 'pamixer' 'compton-garnetius-git' 'paranoid' 'cower' 'network-manager-applet' 'clipmenu' 'mate-notification-daemon' 'mate-notification-theme-slate' 'scrot' 'oblogout' 'feh' 'acpi' 'lxsession-gtk3' 'conky' 'conky-manager' 'pcmanfm-gtk3' 'arc-gtk-theme' 'arc-icon-theme' )
+source=(
+'config'
+'i3status.conf'
+'.fehbg'
+'compton.conf'
+'oblogout.conf'
+'settings.ini'
+)
+md5sums=(
+'SKIP'
+'SKIP'
+'SKIP'
+'SKIP'
+'SKIP'
+'SKIP'
+)
+install='stuff.install'
+
+package() {
+install -d $pkgdir/etc/skel
+cp -r $srcdir/i3status.conf $pkgdir/etc/skel/
+cp -r $srcdir/config        $pkgdir/etc/skel/
+cp -r $srcdir/compton.conf $pkgdir/etc/skel/
+cp -r $srcdir/.fehbg $pkgdir/etc/skel/
+cp -r $srcdir/oblogout.conf $pkgdir/etc/skel/
+cp -r $srcdir/settings.ini $pkgdir/etc/skel/
+}
+
+
+
+
+
