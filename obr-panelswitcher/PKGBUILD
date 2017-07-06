@@ -2,12 +2,12 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=obr-panelswitcher
-pkgver=1.04
+pkgver=1.06
 pkgrel=1
-pkgdesc="A tool to change the panel configuration in OBRevenge"
+pkgdesc="A tool to change the panel configuration in Revenge OS"
 arch=('i686' 'x86_64')
 license=('GPL')
-depends=('python2' 'tint2' 'xfce4-panel' 'mate-panel' 'lxpanel' 'openbox')
+depends=('python2' 'revenge-welcome')
 source=("panelswitcher"
         "panelswitcher.desktop")
 md5sums=('SKIP'

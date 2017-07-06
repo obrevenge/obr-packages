@@ -28,7 +28,7 @@ class Base:
         os.system("sed -i -e 's/p=12/p=6/g' ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml;sed -i -e 's/mate-panel/xfce4-panel/g' ~/.config/openbox/autostart;sed -i -e 's/tint2/xfce4-panel/g' ~/.config/openbox/autostart;sed -i -e 's/lxpanel/xfce4-panel/g' ~/.config/openbox/autostart;killall xfce4-panel;killall mate-panel;killall tint2;killall lxpanel;nohup xfce4-panel > /dev/null 2> /dev/null &")
         
     def startmate(self, widget):
-		os.system("rm ~/.config/dconf/user;cp ~/.config/dconf/user.ob ~/.config/dconf/user;sed -i -e 's/tint2/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/xfce4-panel/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/lxpanel/mate-panel/g' ~/.config/openbox/autostart;killall mate-panel;killall xfce4-panel;killall lxpanel;killall tint2;nohup mate-panel > /dev/null 2> /dev/null &")
+        os.system("rm ~/.config/dconf/user;cp ~/.config/dconf/user.ob ~/.config/dconf/user;sed -i -e 's/tint2/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/xfce4-panel/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/lxpanel/mate-panel/g' ~/.config/openbox/autostart;killall mate-panel;killall xfce4-panel;killall lxpanel;killall tint2;nohup mate-panel > /dev/null 2> /dev/null &")
 		
     def startdock(self, widget):
 	    os.system("sed -i '/docky/d' ~/.config/openbox/autostart;echo 'docky &' >> ~/.config/openbox/autostart;docky &")
@@ -40,13 +40,13 @@ class Base:
         os.system("sed -i '/docky/d' ~/.config/openbox/autostart;rm ~/.config/dconf/user;cp ~/.config/dconf/user.mate ~/.config/dconf/user;sed -i -e 's/tint2/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/xfce4-panel/mate-panel/g' ~/.config/openbox/autostart;sed -i -e 's/lxpanel/mate-panel/g' ~/.config/openbox/autostart;killall xfce4-panel;killall lxpanel;killall tint2;killall mate-panel;killall docky;nohup mate-panel > /dev/null 2> /dev/null &")
         
     def lxdelayout(self, widget):
-		os.system("sed -i -e 's/edge=top/edge=bottom/g' ~/.config/lxpanel/default/panels/panel;sed -i -e 's/mate-panel/lxpanel/g' ~/.config/openbox/autostart;sed -i -e 's/xfce4-panel/lxpanel/g' ~/.config/openbox/autostart;sed -i -e 's/tint2/lxpanel/g' ~/.config/openbox/autostart;killall docky;killall lxpanel;killall tint2;killall mate-panel;killall xfce4-panel;nohup lxpanel > /dev/null 2> /dev/null &")	
+        os.system("sed -i -e 's/edge=top/edge=bottom/g' ~/.config/lxpanel/default/panels/panel;sed -i -e 's/mate-panel/lxpanel/g' ~/.config/openbox/autostart;sed -i -e 's/xfce4-panel/lxpanel/g' ~/.config/openbox/autostart;sed -i -e 's/tint2/lxpanel/g' ~/.config/openbox/autostart;killall docky;killall lxpanel;killall tint2;killall mate-panel;killall xfce4-panel;nohup lxpanel > /dev/null 2> /dev/null &")	
 
     def __init__(self):
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.set_position(gtk.WIN_POS_CENTER)
-        self.window.set_size_request(400, 260)
-        self.window.set_title("OBRevenge Panel Switcher")
+        self.window.set_size_request(500, 360)
+        self.window.set_title("Revenge OS Panel Switcher")
 
         # Button for Tint2        
         self.tintbutton = gtk.Button("Tint2")
@@ -94,7 +94,7 @@ class Base:
         self.lxdelayoutbutton.connect("clicked", self.lxdelayout)
         
         # Making Image
-        self.pix = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/obr-logo-sm.png", 100, 100)
+        self.pix = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/revenge_logo.png", 100, 100)
         self.image = gtk.Image()
         self.image.set_from_pixbuf(self.pix)
         
