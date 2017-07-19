@@ -44,6 +44,9 @@ bindsym $mod+c exec clipmenu
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+gaps inner 10
+gaps outer 10
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -125,6 +128,12 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Floating windows on Start
+for_window [class="Lxterminal"] floating enable
+for_window [class="pcmanfm"] floating enable
+for_window [class="revenge-welcome"] floating enable
+for_window [class="revenge-tools"] floating enable
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -163,10 +172,11 @@ bar {
 
 exec /usr/bin/lxpolkit
 exec compton -b
-exec ~/.fehbg
+exec_always nitrogen --restore
 exec mate-notification-daemon
 exec clipmenud
 exec nm-applet
+exec --no-startup-id run-welcome.sh &
 bindsym XF86MonBrightnessUp exec light -A 10.00
 bindsym XF86MonBrightnessDown exec light -U 10.00
 bindsym XF86AudioRaiseVolume exec pamixer -i 10
