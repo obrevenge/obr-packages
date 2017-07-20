@@ -1,0 +1,32 @@
+
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=revenge-software-install-tool
+pkgver=3.04
+pkgrel=1
+pkgdesc="A tool to quickly install software in OBRevenge"
+arch=('any')
+license=('GPL')
+depends=('python3' 'revenge-welcome' 'faenza-icon-theme' 'breeze-icons')
+replaces=('obr-software-install-tool' 'mtr-software-install-tool' 'kr-software-install-tool')
+source=("revenge-softwareinstall2.py"
+        "revenge-software.desktop"
+	"installapps1.sh")
+md5sums=('SKIP'
+         'SKIP'
+	 'SKIP')
+
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/bin/"
+    cp "${srcdir}/revenge-softwareinstall2.py" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/installapps1.sh" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications"
+    cp "${srcdir}/revenge-software.desktop" "${pkgdir}/usr/share/applications/"
+}
+
+# -*- mode: bash;-*-
+
+
+

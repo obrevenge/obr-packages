@@ -1,0 +1,54 @@
+
+# Maintainer: Jody James <ajjames31@gmail.com>
+
+pkgname=revenge-tools
+pkgver=1.25
+pkgrel=1
+pkgdesc="Tools for Revenge OS"
+arch=('any')
+license=('GPL')
+depends=('python3' 'yad' 'zenity' 'python-gobject' 'pygobject' 'revenge-welcome')
+conflicts=('mtr-tools' 'kr-tools')
+source=("cleanup.sh"
+        "codecs-installer.sh"
+        "flashinstall.sh"
+        "grub-repair.sh"
+        "isotool.desktop"
+        "isotool.sh"
+        "kernel-tool.sh"
+        "revenge-tools"
+        "revenge-tools.desktop"
+        "nvidia-driver.sh"
+        "vbox-clear.sh")
+md5sums=('SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP'
+        'SKIP')
+
+package() {
+    mkdir -p "${pkgdir}/usr/bin/"
+    cp "${srcdir}/flashinstall.sh" "${pkgdir}/usr/bin"
+    cp "${srcdir}/cleanup.sh" "${pkgdir}/usr/bin"
+    cp "${srcdir}/codecs-installer.sh" "${pkgdir}/usr/bin"
+    cp "${srcdir}/grub-repair.sh" "${pkgdir}/usr/bin"
+    cp "${srcdir}/kernel-tool.sh" "${pkgdir}/usr/bin"
+    cp "${srcdir}/nvidia-driver.sh" "${pkgdir}/usr/bin"
+    cp "${srcdir}/vbox-clear.sh" "${pkgdir}/usr/bin"
+    cp "${srcdir}/isotool.sh" "${pkgdir}/usr/bin"
+    cp "${srcdir}/revenge-tools" "${pkgdir}/usr/bin"
+    mkdir -p "${pkgdir}/usr/share/applications/"
+    cp "${srcdir}/revenge-tools.desktop" "${pkgdir}/usr/share/applications"
+    cp "${srcdir}/isotool.desktop" "${pkgdir}/usr/share/applications"
+    
+}
+
+# -*- mode: bash;-*-
+
+

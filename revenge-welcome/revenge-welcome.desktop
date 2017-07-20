@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Revenge OS Welcome
+Comment=Welcome Message for Revenge OS
+Categories=Utility;
+Exec=/usr/bin/run-welcome.sh
+Icon=/usr/share/Icons/revenge_logo.png

@@ -1,0 +1,48 @@
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=revenge-wallpapers
+pkgver=1.01
+pkgrel=1
+pkgdesc="Wallpapers for Revenge OS"
+arch=('any')
+license=('GPL')
+source=("All_Hail_RevengeOS-gray-3d_scope.png"
+        "All_Hail_RevengeOS-gray-gray.png"
+        "Darkest_Revenge.png"
+        "Darkest_Revenge_textured.png"
+        "Horizon_red-RevengeOS.png"
+	"HT_Sphere-RevengeOS.png"
+	"Mt_Shadow_Red_Dawn-RevengeOS.png"
+    "Red_Dawn-RevengeOS.png"
+    "Shadow_cast-RevengeOS.png"
+    "Shadow_cast-RevengeOS-v2.png")
+md5sums=('SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP')
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/All_Hail_RevengeOS-gray-3d_scope.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Darkest_Revenge.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Horizon_red-RevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Shadow_cast-RevengeOS-v2.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Mt_Shadow_Red_Dawn-RevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Darkest_Revenge_textured.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/All_Hail_RevengeOS-gray-gray.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/HT_Sphere-RevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Red_Dawn-RevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Shadow_cast-RevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
+
+}
+
+# -*- mode: bash;-*-
+
+

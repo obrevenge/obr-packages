@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Revenge OS Software Tool
+Comment=Software Installation Tool for Revenge OS
+Categories=Utility;
+Exec=revenge-softwareinstall2.py
+Icon=system-software-install

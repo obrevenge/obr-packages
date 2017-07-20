@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.01
+Type=Application
+Name=Revenge OS Tools
+Comment=Tools for Revenge OS
+Categories=Utility;Settings
+Exec=revenge-tools
+Icon=gnome-settings 

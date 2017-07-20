@@ -1,0 +1,127 @@
+#!/usr/bin/env python2
+
+
+
+# Importing Modules
+import pygtk
+import gtk
+import os
+
+# This is the welcome screen for Mate Revenge
+# written by Jody James
+
+class Base:
+
+    def destroy(self, widget, data=None):
+        gtk.main_quit()
+
+    def update(self, widget):
+        os.system("pamac-updater")
+
+    def install(self, widget):
+        os.system("revenge-softwareinstall2.py")
+    
+    def issues(self, widget):
+        os.system("xdg-open https://github.com/obrevenge/obrevenge-iso/issues")
+    
+    def readonline(self, widget):
+        os.system("xdg-open https://obrevenge.freeforums.org")
+        
+    def google(self, widget):
+        os.system("xdg-open https://plus.google.com/communities/115644675078865877931")
+        
+    def vbox(self, widget):
+        os.system("gksu vbox-clear.sh")
+        
+    def nvidia(self, widget):
+        os.system("gksu nvidia-driver.sh")
+
+    def show(self, widget):
+        status = self.togglebutton.get_active()
+        if status == True:
+            os.system("rm ~/.config/autostart/obwelcome.desktop")
+
+
+    def __init__(self):
+        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        self.window.set_position(gtk.WIN_POS_CENTER)
+        self.window.set_size_request(800, 475)
+        self.window.set_title("Revenge OS Welcome")
+
+
+# Making Images
+        self.pix = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/revenge_logo.png", 200, 160)
+        self.image = gtk.Image()
+        self.image.set_from_pixbuf(self.pix)
+
+        self.pix1 = gtk.gdk.pixbuf_new_from_file_at_size("/usr/share/Icons/revenge_banner.png", 800, 200)
+        self.image1 = gtk.Image()
+        self.image1.set_from_pixbuf(self.pix1)
+
+# Making Buttons
+        self.updatebutton = gtk.Button("Update System")
+        self.updatebutton.connect("clicked", self.update)
+        self.installbutton = gtk.Button("Software Installation Tool")
+        self.installbutton.connect("clicked", self.install)
+        self.readbutton = gtk.Button("Report Issues")
+        self.readbutton.connect("clicked", self.issues)
+        self.readonbutton = gtk.Button("Forums")
+        self.readonbutton.connect("clicked", self.readonline)
+        self.googlebutton = gtk.Button("Join G+ Community")
+        self.googlebutton.connect("clicked", self.google)
+        self.vboxbutton = gtk.Button("Virtualbox Modules?")
+        self.vboxbutton.connect("clicked", self.vbox)
+        self.nvidiabutton = gtk.Button("NVIDIA Drivers")
+        self.nvidiabutton.connect("clicked", self.nvidia)
+        self.togglebutton = gtk.CheckButton(label="Do Not Show Again")
+        self.togglebutton.connect("clicked", self.show)
+       
+
+# Making Containers
+        self.vbox = gtk.VBox()
+        self.vbox.set_spacing(20)
+        self.vbox1 = gtk.VBox()
+        self.vbox1.pack_start(self.image1)
+        self.hbox = gtk.HBox()
+        self.hbox.set_spacing(20)
+        self.vbox2 = gtk.VBox()
+        self.vbox3 = gtk.VBox()
+        self.vbox4 = gtk.VBox()
+        self.hbox5 = gtk.HBox()
+        self.vbox3.pack_start(self.updatebutton)
+        self.vbox3.pack_start(self.image)
+        
+        self.vbox4.set_spacing(20)
+        self.vbox4.pack_start(self.installbutton)
+        self.vbox4.pack_start(self.readbutton)
+        self.vbox4.pack_start(self.readonbutton)
+        self.hbox5.pack_end(self.togglebutton)
+        
+        self.vbox2.set_spacing(20)
+        self.vbox2.pack_start(self.vboxbutton)
+        self.vbox2.pack_start(self.googlebutton)
+        self.vbox2.pack_start(self.nvidiabutton)
+
+# Placing Items
+        self.window.add(self.vbox)
+        self.vbox.add(self.vbox1)
+        self.vbox.add(self.hbox)
+        self.hbox.add(self.vbox2)
+        self.hbox.add(self.vbox3)
+        self.hbox.add(self.vbox4)
+        self.vbox.add(self.hbox5)
+        
+
+
+        self.window.show_all()
+        self.window.connect("destroy", self.destroy)
+
+
+
+    def main(self):
+        gtk.main()
+
+# Running Main Window
+if __name__== "__main__":
+    base = Base()
+    base.main()

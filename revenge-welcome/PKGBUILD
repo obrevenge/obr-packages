@@ -1,0 +1,42 @@
+
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=revenge-welcome
+pkgver=1.11
+pkgrel=1
+pkgdesc="Welcome Screen for Revenge OS"
+arch=('any')
+license=('GPL')
+depends=('python2' 'pygtk')
+replaces=('obr-welcome' 'mtr-welcome' 'kr-welcome')
+source=("revenge-welcome"
+	"revenge-welcome-live"
+        "revenge-welcome.desktop"
+        "revenge_logo.png"
+	"revenge_banner.png"
+    "run-welcome.sh")
+md5sums=('SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+	 'SKIP'
+	 'SKIP' )
+
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/bin/"
+    cp "${srcdir}/revenge-welcome" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/revenge-welcome-live" "${pkgdir}/usr/bin/"
+    cp "${srcdir}/run-welcome.sh" "${pkgdir}/usr/bin/"
+    mkdir -p "${pkgdir}/usr/share/applications"
+    cp "${srcdir}/revenge-welcome.desktop" "${pkgdir}/usr/share/applications"
+    mkdir -p "${pkgdir}/usr/share/Icons"
+    cp "${srcdir}/revenge_logo.png" "${pkgdir}/usr/share/Icons"
+    cp "${srcdir}/revenge_banner.png" "${pkgdir}/usr/share/Icons"
+}
+
+# -*- mode: bash;-*-
+
+
+

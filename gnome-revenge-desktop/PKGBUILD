@@ -1,0 +1,23 @@
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=gnome-revenge-desktop
+pkgver=1.00
+pkgrel=1
+pkgdesc="Desktop Meta-Package for Revenge OS gnome desktop"
+arch=('any')
+license=('GPL')
+makedepends=('git')
+url=https://github.com/obrevenge/gnome-revenge-desktop
+depends=('w3m' 'imagemagick' 'terminus-font' 'neofetch' 'faenza-icon-theme' 'arc-gtk-theme' 'vibrancy-colors' 'surfn-icons-git' 'chromium' 'gptfdisk' 'ntfs-3g' 'sl' 'qxkb' 'gufw' 'pavucontrol' 'boost' 'qt5-styleplugins' 'qt5ct' 'mkinitcpio-openswap' 'squashfs-tools' 'gnome-disk-utility' 'liboobs' 'gksu' 'zenity' 'wget' 'lynx' 'pamac-aur' 'yaourt' 'yad' 'gparted' 'htop' 'rsync' 'reflector' 'ttf-dejavu' 'file-roller' 'revenge-welcome' 'revenge-tools' 'revenge-wallpapers' 'revenge-software-install-tool')
+source=("git+$url.git")
+md5sums=('SKIP')
+install=$pkgname.install
+    
+package() {
+	install -d $pkgdir/etc
+	cp -r $srcdir/gnome-revenge-desktop/shared/skel_new $pkgdir/etc
+}
+
+# -*- mode: bash;-*-
+
+
