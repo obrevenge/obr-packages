@@ -1,8 +1,0 @@
-In this config, the top bar shows the ram usage, battery life, available updates, etc.
-One downside is that users will have to personally change the time config in i3status.conf to their own timezone as the config for the time module is static
-All the brightness, volume, play and pause keys actually work.
-mod+t opens rofi -show run
-mod+d opens rofi -show drun
-mod+c opens clipmenu
-Everything else works as normal in i3
-conky is included as a depend, but none are preset as the bar itself already offers so much information
