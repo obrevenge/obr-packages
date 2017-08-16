@@ -1,0 +1,30 @@
+pkgname=revenge-lsb-release
+pkgver=1.4
+pkgrel=14
+pkgdesc="LSB version query program"
+arch=('any')
+url=https://github.com/obrevenge/lsb-release
+license=('GPL2')
+depends=('bash')
+source=("git+$url.git")
+md5sums=('SKIP')
+
+build() {
+  cd "$srcdir/lsb-release"
+
+  make
+}
+
+package() {
+  cd "$srcdir/lsb-release"
+
+  install -dm755 "$pkgdir/etc"
+  echo "LSB_VERSION=$pkgver" >> "$pkgdir/etc/lsb-release"
+  echo "DISTRIB_ID=Revenge" >> "$pkgdir/etc/lsb-release"
+  echo "DISTRIB_RELEASE=rolling" >> "$pkgdir/etc/lsb-release"
+  echo "DISTRIB_DESCRIPTION=\"Revenge OS\"" >> "$pkgdir/etc/lsb-release"
+
+  install -Dm 644 lsb_release.1.gz "$pkgdir/usr/share/man/man1/lsb_release.1.gz"
+  install -Dm 755 lsb_release "$pkgdir/usr/bin/lsb_release"
+}
+

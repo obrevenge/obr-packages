@@ -1,0 +1,45 @@
+# Maintainer: Jody James <ajjamesobr@gmail.com>
+
+pkgname=revenge-stationx-wallpapers
+pkgver=1.01
+pkgrel=1
+pkgdesc="Wallpapers for Revenge OS"
+arch=('any')
+license=('GPL')
+source=("Behind_the_scenes-StationX.png"
+        "Behind_the_scenes-StationX-v2.png"
+        "Buttonfly-StationX.png"
+        "Illuminaton_reflect-StationX.png"
+        "Illuminaton-StationX.png"
+	"Mt_Shadow_Red_Dawn-StationX.png"
+	"Pop_out_Red-StationX.png"
+    "Pop_out-StationX.png"
+    "Shadow_cast-StationX.png")
+md5sums=('SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP')
+
+package() {
+    
+    mkdir -p "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Behind_the_scenes-StationX.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Behind_the_scenes-StationX-v2.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Buttonfly-StationX.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Illuminaton_reflect-StationX.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Illuminaton-StationX.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Mt_Shadow_Red_Dawn-StationX.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Pop_out_Red-StationX.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Pop_out-StationX.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/Shadow_cast-StationX.png" "${pkgdir}/usr/share/Wallpaper"
+
+}
+
+# -*- mode: bash;-*-
+
+
