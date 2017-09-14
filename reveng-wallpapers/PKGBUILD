@@ -1,7 +1,7 @@
 # Maintainer: Jody James <ajjamesobr@gmail.com>
 
 pkgname=revenge-wallpapers
-pkgver=1.01
+pkgver=1.03
 pkgrel=1
 pkgdesc="Wallpapers for Revenge OS"
 arch=('any')
@@ -11,12 +11,34 @@ source=("All_Hail_RevengeOS-gray-3d_scope.png"
         "Darkest_Revenge.png"
         "Darkest_Revenge_textured.png"
         "Horizon_red-RevengeOS.png"
-	"HT_Sphere-RevengeOS.png"
-	"Mt_Shadow_Red_Dawn-RevengeOS.png"
-    "Red_Dawn-RevengeOS.png"
-    "Shadow_cast-RevengeOS.png"
-    "Shadow_cast-RevengeOS-v2.png")
+	    "HT_Sphere-RevengeOS.png"
+	    "Mt_Shadow_Red_Dawn-RevengeOS.png"
+        "Red_Dawn-RevengeOS.png"
+        "Shadow_cast-RevengeOS.png"
+        "Shadow_cast-RevengeOS-v2.png"
+        "besieged.jpg"
+        "blackscarlet.jpg"
+        "capgras.jpg"
+        "fathomless.jpg"
+        "freedom.jpg"
+        "insidesouls.jpg"
+        "lastendeavor.png"
+        "shadows.jpg"
+        "tearstains.jpg"
+        "timeofhell.jpg")
+
+
 md5sums=('SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
          'SKIP'
          'SKIP'
          'SKIP'
@@ -40,6 +62,18 @@ package() {
     cp "${srcdir}/HT_Sphere-RevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
     cp "${srcdir}/Red_Dawn-RevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
     cp "${srcdir}/Shadow_cast-RevengeOS.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/besieged.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/blackscarlet.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/capgras.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/fathomless.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/freedom.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/insidesouls.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/lastendeavor.png" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/shadows.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/tearstains.jpg" "${pkgdir}/usr/share/Wallpaper"
+    cp "${srcdir}/timeofhell.jpg" "${pkgdir}/usr/share/Wallpaper"
+
+
 
 }
 
