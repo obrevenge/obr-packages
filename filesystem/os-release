@@ -1,0 +1,7 @@
+NAME="Revenge OS"
+PRETTY_NAME="Revenge OS"
+ID=revenge
+ID_LIKE=archlinux
+ANSI_COLOR="0;36"
+HOME_URL="https://www.revengeos.weebly.com"
+
